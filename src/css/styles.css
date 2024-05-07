@@ -5,3 +5,34 @@
 @import url("./_variables.css");
 /* Feel free to add as many of these imports as you need */
 
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url(../../assets/fonts/HelveticaNeueLight.otf) format('opentype');
+  font-style: normal;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url(../../assets/fonts/HelveticaNeueRoman.otf) format('opentype');
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url(../../assets/fonts/HelveticaNeueMedium.otf) format('opentype');
+  font-style: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url(../../assets/fonts/HelveticaNeueBold.otf) format('opentype');
+  font-style: normal;
+  font-weight: 700;
+}
+
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+}
