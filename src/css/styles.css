@@ -38,3 +38,35 @@ body {
   color: #000;
 }
 
+header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.navbar {
+  padding: 0;
+  margin-top: 2rem;
+  margin-right: 1.2rem;
+}
+
+.navbar li {
+  display: inline;
+  padding: 12px;
+  font-size: 0.9rem;
+}
+
+li a {
+  color: #000;
+  text-decoration: none;
+}
+
+.fa-solid {
+  font-size: 1.1rem;
+}
+
+#logo {
+  height: 55px;
+  margin-left: 1.3rem;
+  margin-top: 0.7rem;
+}
