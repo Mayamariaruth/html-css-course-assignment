@@ -1,133 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-  <!-- Favicon -->
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">  
-  <!-- CSS & Font Awesome icons -->
-  <link rel="stylesheet" href="src/css/styles.css">
-  <script src="https://kit.fontawesome.com/11ca27fbbb.js" crossorigin="anonymous"></script>
-  <title>Rainy Days | Home</title>
-</head>
-<body>
-  <!-- Header -->
-  <header>
-    <img src="assets/images/logo.png" alt="Rainy Days logo" id="logo">
-    <nav>
-      <ul class="navbar">
-        <li>
-          <a href="index.html">Home</a>
-        </li>
-        <li>
-          <a href="products/products.html">Men</a>
-        </li>
-        <li>
-          <a href="products/products.html">Women</a>
-        </li>
-        <li>
-          <a href="about.html">About</a>
-        </li>
-        <li>
-          <a href="contact.html">Contact</a>
-        </li>
-        <li>
-          <a href="checkout/checkout.html">
-            <i class="fa-solid fa-cart-shopping"></i>
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </header>
-  <!-- Main content -->
-  <main>
-    <!-- Hero section -->
-    <section>
-      <div>
-        <img src="" alt="A man standing on a cliff looking out to the horizon">
-      </div>
-      <div>
-        <h1>Pushing the Comfort Zone</h1>
-        <p>Where Comfort Meets Durability,</p>
-        <p>Every Step of the Way</p>
-      </div>
-    </section>
-    <!-- Collections section -->
-    <section>
-      <h2>Shop our collections</h2>
-      <div>
-        <a href="products/products.html">Men's Jackets</a>
-        <a href="products/products.html">Women's Jackets</a>
-      </div>
-      <div>
-        <img src="" alt="A woman standing in the forest looking up to the sky">
-        <img src="" alt="A man standing on a cliff with hiking gear">
-        <img src="" alt="A man looking into the camera with train tracks behind him">
-      </div>
-    </section>
-    <!-- Bestsellers section -->
-    <section>
-      <h2>Shop our bestsellers</h2>
-      <div>
-        <img src="" alt="Product image of the Wet Weather jacket">
-        <a href="products/products.html">Wet Weather</a>
-      </div>
-      <div>
-        <img src="" alt="Product image of the All-Weather jacket">
-        <a href="products/products.html">All-Weather</a>
-      </div>
-      <div>
-        <img src="" alt="Product image of the RainReady jacket">
-        <a href="products/products.html">RainReady</a>
-      </div>
-      <div>
-        <img src="" alt="Product image of the Storm Shield jacket">
-        <a href="products/products.html">Storm Shield</a>
-      </div>
-      <div>
-        <img src="" alt="Product image of the Fleece jacket">
-        <a href="products/products.html">Fleece</a>
-      </div>
-    </section>
-  </main>
-  <!-- Footer -->
-  <footer>
-    <img src="" alt="Rainy Days logo with title heading text">
-    <div>
-      <h3>Shop</h3>
-      <a href="products/products.html">Men</a>
-      <a href="products/products.html">Women</a>
-    </div>
-    <div>
-      <h3>Follow us</h3>
-      <a href="" target="_blank">
-        <i class="fa-brands fa-square-twitter"></i>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <!-- Favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/favicon/favicon-16x16.png"
+    />
+    <!-- CSS & Font Awesome icons -->
+    <link rel="stylesheet" href="src/css/styles.css" />
+    <script
+      src="https://kit.fontawesome.com/11ca27fbbb.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Rainy Days | Home</title>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <input type="checkbox" id="nav-box" />
+      <label for="nav-box">
+        <i class="fa-solid fa-bars mobile-menu"></i>
+        <span class="mobile-menu-text">Menu</span>
+      </label>
+      <img src="assets/images/logo.png" alt="Rainy Days logo" id="logo" />
+      <a href="checkout/checkout.html">
+        <i class="fa-solid fa-cart-shopping" id="mobile-cart"></i>
       </a>
-      <a href="" target="_blank">
-        <i class="fa-brands fa-square-facebook"></i>
-      </a>
-      <a href="" target="_blank">
-        <i class="fa-brands fa-square-instagram"></i>
-      </a>
-      <a href="" target="_blank">
-        <i class="fa-brands fa-square-youtube"></i>
-      </a>
-    </div>
-    <div>
-      <h3>Newsletter</h3>
-      <p>Sign up to our newsletter to be the first to hear about the latest news, product launches and events!</p>
-      <!-- Add newsletter form!!! -->
-    </div>
-    <hr>
-    <p>&copy; Rainy Days 2024. All rights reserved</p>
-    <p>Terms & Conditions</p>
-    <p>Privacy Policy</p>
-    <p>Cookie Policy</p>
-  </footer>
-</body>
+      </div>
+      <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="products/products.html">Men</a>
+        <a href="products/products.html">Women</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="checkout/checkout.html">
+          <i class="fa-solid fa-cart-shopping" id="desktop-cart"></i>
+        </a>
+      </nav>
+    </header>
+    <!-- Main content -->
+    <main>
+      <!-- Hero section -->
+      <section>
+        <div>
+          <img src="" alt="A man standing on a cliff looking out to the horizon"/>
+        </div>
+        <div>
+          <h1>Pushing the Comfort Zone</h1>
+          <p>Where Comfort Meets Durability,</p>
+          <p>Every Step of the Way</p>
+        </div>
+      </section>
+      <!-- Collections section -->
+      <section>
+        <h2>Shop our collections</h2>
+        <div>
+          <a href="products/products.html">Men's Jackets</a>
+          <a href="products/products.html">Women's Jackets</a>
+        </div>
+        <div>
+          <img
+            src=""
+            alt="A woman standing in the forest looking up to the sky"
+          />
+          <img src="" alt="A man standing on a cliff with hiking gear" />
+          <img
+            src=""
+            alt="A man looking into the camera with train tracks behind him"
+          />
+        </div>
+      </section>
+      <!-- Bestsellers section -->
+      <section>
+        <h2>Shop our bestsellers</h2>
+        <div>
+          <img src="" alt="Product image of the Wet Weather jacket" />
+          <a href="products/products.html">Wet Weather</a>
+        </div>
+        <div>
+          <img src="" alt="Product image of the All-Weather jacket" />
+          <a href="products/products.html">All-Weather</a>
+        </div>
+        <div>
+          <img src="" alt="Product image of the RainReady jacket" />
+          <a href="products/products.html">RainReady</a>
+        </div>
+        <div>
+          <img src="" alt="Product image of the Storm Shield jacket" />
+          <a href="products/products.html">Storm Shield</a>
+        </div>
+        <div>
+          <img src="" alt="Product image of the Fleece jacket" />
+          <a href="products/products.html">Fleece</a>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer>
+      <img src="" alt="Rainy Days logo with title heading text" />
+      <div>
+        <h3>Shop</h3>
+        <a href="products/products.html">Men</a>
+        <a href="products/products.html">Women</a>
+      </div>
+      <div>
+        <h3>Follow us</h3>
+        <a href="" target="_blank">
+          <i class="fa-brands fa-square-twitter"></i>
+        </a>
+        <a href="" target="_blank">
+          <i class="fa-brands fa-square-facebook"></i>
+        </a>
+        <a href="" target="_blank">
+          <i class="fa-brands fa-square-instagram"></i>
+        </a>
+        <a href="" target="_blank">
+          <i class="fa-brands fa-square-youtube"></i>
+        </a>
+      </div>
+      <div>
+        <h3>Newsletter</h3>
+        <p>
+          Sign up to our newsletter to be the first to hear about the latest
+          news, product launches and events!
+        </p>
+        <!-- Add newsletter form!!! -->
+      </div>
+      <hr />
+      <p>&copy; Rainy Days 2024. All rights reserved</p>
+      <p>Terms & Conditions</p>
+      <p>Privacy Policy</p>
+      <p>Cookie Policy</p>
+    </footer>
+  </body>
 </html>

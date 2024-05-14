@@ -1,10 +1,4 @@
-/* Use import to split up your CSS into manageable chunks */
-@import url("./_reset.css");
-/* Files that are only needed to be imported are called partials */
-/* These are marked with an underscore: */
-@import url("./_variables.css");
-/* Feel free to add as many of these imports as you need */
-
+/* Fonts */
 @font-face {
   font-family: 'Helvetica Neue';
   src: url(../../assets/fonts/HelveticaNeueLight.otf) format('opentype');
@@ -33,40 +27,125 @@
   font-weight: 700;
 }
 
+/* General styles */
 body {
   font-family: 'Helvetica Neue', sans-serif;
   color: #000;
+  margin: 0;
+  max-width: 2000px;
+}
+
+/* Header/navigation bar */
+nav,
+#nav-box {
+  display: none;
 }
 
 header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 2rem;
+  align-items: center;
 }
 
-.navbar {
-  padding: 0;
-  margin-top: 2rem;
-  margin-right: 1.2rem;
+nav {
+  position: absolute;
+  top: 4.8rem;
+  width: 100%;
+  background-color: #fff;
 }
 
-.navbar li {
-  display: inline;
-  padding: 12px;
+#nav-box:checked ~ nav {
+  display: block;
+}
+
+nav a {
   font-size: 0.9rem;
-}
-
-li a {
   color: #000;
   text-decoration: none;
+  display: block;
 }
 
-.fa-solid {
-  font-size: 1.1rem;
+#desktop-cart {
+  display: none;
+}
+
+#mobile-cart {
+  font-size: 1.5rem;
+  color: #000;
+  margin-right: 1rem;
+  margin-top: 1.5rem;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
 }
 
 #logo {
   height: 55px;
-  margin-left: 1.3rem;
-  margin-top: 0.7rem;
+  margin-top: 1.3rem;
+}
+
+header label {
+  display: inline-grid;
+  margin-left: 1rem;
+  margin-top: 1.5rem;
+}
+
+.mobile-menu {
+  font-size: 1.5rem;
+}
+
+.mobile-menu-text {
+  font-size: 0.7rem;
+  font-weight: 500;
+  padding-top: 2px;
+}
+
+/* Media queries */
+@media (min-width: 576px) {
+
+}
+
+/* Media queries */
+@media (min-width: 768px) {
+  header {
+    justify-content: space-between;
+  }
+
+  nav {
+    display: inline;
+    position: relative;
+    width: auto;
+    top: 0;
+  }
+
+  #logo {
+    margin-left: 2rem;
+    margin-top: 1.3rem;
+  }
+
+  #nav-box,
+  #mobile-cart {
+    display: none;
+  }
+
+  header label {
+    display: none;
+  }
+  
+  #desktop-cart {
+    display: contents;
+    font-size: 1.1rem;
+  }
+  
+  .navbar {
+    margin-top: 2.5rem;
+    margin-right: 1.2rem;
+  }
+  
+  nav a {
+    padding: 12px;
+    display: inline;
+  }
 }
