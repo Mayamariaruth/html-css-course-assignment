@@ -121,7 +121,11 @@ header label {
   margin-right: 1rem;
 }
 
-/* Hero image */
+/* Hero section */
+.hero-container {
+  height: 90vh;
+}
+
 .hero-image {
   width: 100%;
   z-index: 0;
@@ -137,7 +141,7 @@ header label {
   position: relative;
   top: 9.5rem;
   text-align: center;
-  left: 26vw;
+  left: 27vw;
   width: 70%;
 }
 
@@ -154,6 +158,67 @@ header label {
   font-size: 3.3vw;
 }
 
+/* Main content */
+.collections-container {
+  text-align: center;
+}
+
+.collections-heading {
+  text-transform: uppercase;
+  font-size: 5vw;
+  font-weight: 500;
+  letter-spacing: 2px;
+  margin-bottom: 0;
+}
+
+.btn-container {
+  margin-top: 1rem;
+  display: inline-grid;
+}
+
+.collections-btn {
+  border: 1.5px solid #000;
+  padding: 13px 2.5rem;
+  text-decoration: none;
+  color: #000;
+  font-size: 1.1rem;
+  font-weight: 500;
+  border-radius: 2px;
+  margin-bottom: 1rem;
+}
+
+.padding {
+  padding: 13px 3rem;
+}
+
+.row {
+  display: flex;
+  margin-top: 1.4rem;
+  overflow: hidden;
+}
+
+.column {
+  flex: 33.33%;
+}
+
+.collections-img {
+  width: 33.49vw;
+}
+
+.collections-img3 {
+  width: 33.26vw;
+}
+
+.bestsellers-container {
+  
+}
+
+/* Footer */
+footer {
+  position: absolute;
+  bottom: auto;
+}
+
 /* Media queries */
 @media (min-width: 576px) {
   .hero-text h1 {
@@ -163,6 +228,29 @@ header label {
   .hero-text p {
     font-size: 1.1rem;
   }
+
+  .collections-container {
+    margin-top: 2.5rem;
+  }
+
+  .collections-heading {
+    font-size: 1.7rem;
+  }
+
+  .btn-container {
+    margin-top: 2.3rem;
+    display: block;
+    margin-bottom: 3.8rem;
+  }
+
+  .margin {
+    margin-left: 1rem;
+  }
+
+  .collections-btn {
+    font-size: 1.2rem;
+  }
+  
 }
 
 /* Media queries */
@@ -243,6 +331,15 @@ header label {
   .hero-text p {
     font-size: 1.3rem;
   }
+
+  /* Main content */
+  .collections-heading {
+    font-size: 1.9rem;
+  }
+
+  .collections-container {
+    margin-top: 2.8rem;
+  }
 }
 
 @media (min-width: 998px) {
@@ -252,5 +349,9 @@ header label {
 
   .hero-text p {
     font-size: 1.4rem;
+  }
+
+  .collections-btn {
+    font-size: 1.3rem;
   }
 }
