@@ -71,8 +71,33 @@
       </nav>
     </header>
     <!-- Main content -->
-    <main>
+    <main class="main-container">
       <p class="pages">Home / <span class="active-page">Contact</span></p>
+      <div class="contact-container">
+        <section class="form-container">
+          <h1>Get in touch with us</h1>
+          <form method="POST" action="contact.html">
+            <label for="name"><span>*</span>Name:</label>
+            <input type="text" name="name" id="name">
+            <label for="email"><span>*</span>Email:</label>
+            <input type="email" name="emailaddress" id="emailaddress">
+            <label for="order"><span>*</span>Order Number (optional):</label>
+            <input type="number" name="order" id="order" min="7" max="7">
+            <label for="subject"><span>*</span>Subject:</label>
+            <input type="text" name="subject" id="subject">
+            <label for="message"><span>*</span>Message:</label>
+            <textarea name="message" id="message"></textarea>
+            <button class="">Send Message</button>
+          </form>
+        </section>
+        <section class="contact-info">
+          <h2>Have questions, feedback, or just want to say hello?</h2>
+          <p>You can reach us by sending a message in the form with your details. Our friendly and knowledgeable team is here to assist you with any inquiries you may have about our products, sizing, shipping, or returns.</p>
+          <p>For business inquiries, collaborations, or press opportunities, please contact our marketing team at <span id="underline">marketing@rainydays.com</span>. We are always open to new partnerships and opportunities to work with like-minded brands and individuals.</p>
+          <p>You can also connect with us on social media for the latest updates, promotions, and style inspiration. Follow us on <a href="" target="_blank">Instagram</a>, <a href="" target="_blank">Facebook</a>, <a href="" target="_blank">YouTube</a>, and <a href="" target="_blank">Twitter</a> to stay in the loop.</p>
+          <p>Your feedback and suggestions are valuable to us, so please don’t hesitate to get in touch. Thank you for choosing Rainy Days - where staying dry never looked so good.</p>
+        </section>
+      </div>
     </main>
     <!-- Footer -->
     <footer>
@@ -106,8 +131,8 @@
               news, product launches and events!
             </p>
             <form method="GET">
-              <label for="name"></label>
-              <input type="email" name="email" id="name" placeholder="Email Address" required>
+              <label for="email"></label>
+              <input type="email" name="email" id="email" placeholder="Email Address" required>
               <button class="submit-btn"><i class="fa-solid fa-chevron-right submit-chevron"></i></button>
             </form>
           </div>
