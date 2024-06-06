@@ -76,18 +76,19 @@
       <div class="contact-container">
         <section class="form-container">
           <h1>Get in touch with us</h1>
-          <form method="POST" action="contact.html">
-            <label for="name"><span>*</span>Name:</label>
-            <input type="text" name="name" id="name">
-            <label for="email"><span>*</span>Email:</label>
-            <input type="email" name="emailaddress" id="emailaddress">
-            <label for="order"><span>*</span>Order Number (optional):</label>
-            <input type="number" name="order" id="order" min="7" max="7">
-            <label for="subject"><span>*</span>Subject:</label>
-            <input type="text" name="subject" id="subject">
-            <label for="message"><span>*</span>Message:</label>
-            <textarea name="message" id="message"></textarea>
-            <button class="">Send Message</button>
+          <form method="GET">
+            <label for="name"><span class="red-color">*</span> Name:</label>
+            <input type="text" name="name" id="name" placeholder="First and last name" required>
+            <label for="email"><span class="red-color">*</span> Email:</label>
+            <input type="email" name="emailaddress" id="emailaddress" placeholder="name@example.com" required>
+            <label for="order">Order Number (optional):</label>
+            <input type="number" name="order" id="order" min="7" max="7" placeholder="1234567">
+            <label for="subject"><span class="red-color">*</span> Subject:</label>
+            <input type="text" name="subject" id="subject" placeholder="Subject" required>
+            <label for="message"><span class="red-color">*</span> Message:</label>
+            <textarea name="message" id="message" placeholder="Message" required></textarea>
+            <p><span class="red-color">*</span> Required fields</p>
+            <button class="message-btn">Send Message</button>
           </form>
         </section>
         <section class="contact-info">
