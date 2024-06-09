@@ -51,6 +51,10 @@ header {
   position: relative;
 }
 
+header.active {
+  background-color: #fff;
+}
+
 nav {
   position: absolute;
   top: 5.3rem;
@@ -73,7 +77,8 @@ nav a {
   margin-left: 1rem;
 }
 
-#desktop-cart {
+#desktop-cart,
+#desktop-item {
   display: none;
 }
 
