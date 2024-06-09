@@ -49,7 +49,7 @@
       </div>
       <nav>
         <div class="menu">
-          <a href="index.html">Home</a>
+          <a href="../index.html">Home</a>
           <i class="fa-solid fa-chevron-right nav-chevron"></i>
         </div>
         <div class="menu">
@@ -61,15 +61,16 @@
           <i class="fa-solid fa-chevron-right nav-chevron"></i>
         </div>
         <div class="menu">
-          <a href="about.html">About</a>
+          <a href="../about.html">About</a>
           <i class="fa-solid fa-chevron-right nav-chevron"></i>
         </div>
         <div class="menu">
-          <a href="contact.html">Contact</a>
+          <a href="../contact.html">Contact</a>
           <i class="fa-solid fa-chevron-right nav-chevron"></i>
         </div>
         <a href="checkout.html" aria-label="Shopping cart">
           <i class="fa-solid fa-cart-shopping" id="desktop-cart"></i>
+          <span id="desktop-item">(1)</span>
         </a>
       </nav>
     </header>
@@ -77,62 +78,64 @@
     <main class="main-container">
       <p class="pages">Home / <span class="active-page">Contact</span></p>
       <h1 class="checkout-heading">Checkout</h1>
-      <section class="order-summary">
-        <h2 class="order-heading">Order Summary <span class="light-weight">(1)</span></h2>
-        <hr>
-        <div class="order-container">
-          <div class="order-img">
-            <img class="background" src="../products/images/product-bg.png" alt="Grey product background">
-            <img class="product-image" src="../products/images/stormshield.png" alt="Product image of the Storm Shield jacket">
-          </div>
-          <div class="product-info">
-            <p id="product-heading">Storm Shield Waterproof Jacket</p>
-            <p class="info">Size: <span class="light-weight">M</span></p>
-            <p class="info">Qty: <span class="light-weight">1</span></p>
-            <p class="light-weight">$199.00</p>
-            <div class="display">
-              <button id="minus-btn">
-                <span>
-                  <i class="fas fa-minus"></i>
-                </span>
-              </button>
-              <input type="number" value="1" id="qty-nr">
-              <button id="plus-btn">
-                <span>
-                  <i class="fas fa-plus"></i>
-                </span>
-              </button>
+      <div class="checkout-container">
+        <section class="order-summary">
+          <h2 class="order-heading">Order Summary <span class="light-weight">(1)</span></h2>
+          <hr>
+          <div class="order-container">
+            <div class="order-img">
+              <img class="background" src="../products/images/product-bg.png" alt="Grey product background">
+              <img class="product-image" src="../products/images/stormshield.png" alt="Product image of the Storm Shield jacket">
+            </div>
+            <div class="product-info">
+              <p id="product-heading">Storm Shield Waterproof Jacket</p>
+              <p class="info">Size: <span class="light-weight">M</span></p>
+              <p class="info">Qty: <span class="light-weight">1</span></p>
+              <p class="light-weight">$199.00</p>
+              <div class="display">
+                <button id="minus-btn">
+                  <span>
+                    <i class="fas fa-minus"></i>
+                  </span>
+                </button>
+                <input type="number" value="1" id="qty-nr">
+                <button id="plus-btn">
+                  <span>
+                    <i class="fas fa-plus"></i>
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-        <hr>
-        <p class="total-text">Subtotal<span class="totals">$199.00</span></p>
-        <p class="total-text">Shipping<span class="totals">FREE</span></p>
-        <p class="total-text">Grand total<span class="totals">$199.00</span></p>
-      </section>
-      <section class="payment-width">
-        <h2 class="headings">Delivery Details</h2>
-        <hr>
-        <form class="delivery-form">
-          <input class="name-details" type="text" name="fname" placeholder="First name*" required>
-          <input class="name-details" type="text" name="lname" placeholder="Last name*" required>
-          <input class="address-details" type="text" name="address" placeholder="Address*" required>
-          <input class="address-details" type="text" name="city" placeholder="City*" required>
-          <input class="address-details" type="number" name="postcode" placeholder="Postcode*" required>
-          <input class="address-details" type="text" name="country" placeholder="Country*" required>
-        </form>
-        <h2 class="headings">Contact Details</h2>
-        <hr>
-        <form class="contact">
-          <input class="contact-details" type="email" name="email" placeholder="Email*" required>
-          <input class="contact-details" type="tel" name="phone" placeholder="Phone*" required>
-          <input type="checkbox" name="contactdetails" id="checkbox">
-          <label for="checkbox">
-            Keep me posted on exclusive offers, product drops and Rainy Days updates.<br>
-            <span id="consent">I consent to the processing of my personal data for profile-based marketing purposes, as described in our <span>Privacy Policy</span>.</span>
-          </label>
-        </form>
-      </section>
+          <hr>
+          <p class="total-text">Subtotal<span class="totals">$199.00</span></p>
+          <p class="total-text">Shipping<span class="totals">FREE</span></p>
+          <p class="total-text">Grand total<span class="totals">$199.00</span></p>
+        </section>
+        <section class="payment-width">
+          <h2 class="headings" id="margin-top">Delivery Details</h2>
+          <hr>
+          <form class="delivery-form">
+            <input class="name-details" type="text" name="fname" placeholder="First name*" required>
+            <input class="name-details" type="text" name="lname" placeholder="Last name*" required>
+            <input class="address-details" type="text" name="address" placeholder="Address*" required>
+            <input class="address-details" type="text" name="city" placeholder="City*" required>
+            <input class="address-details" type="text" name="postcode" placeholder="Postcode*" required>
+            <input class="address-details" type="text" name="country" placeholder="Country*" required>
+          </form>
+          <h2 class="headings">Contact Details</h2>
+          <hr>
+          <form class="contact">
+            <input class="contact-details" type="email" name="email" placeholder="Email*" required>
+            <input class="contact-details" type="tel" name="phone" placeholder="Phone*" required>
+            <input type="checkbox" name="contactdetails" id="checkbox">
+            <label for="checkbox">
+              Keep me posted on exclusive offers, product drops and Rainy Days updates.<br>
+              <span id="consent">I consent to the processing of my personal data for profile-based marketing purposes, as described in our <span>Privacy Policy</span>.</span>
+            </label>
+          </form>
+        </section>
+      </div>
       <section class="payment-width">
         <h2 class="headings">Payment</h2>
         <hr>
@@ -161,11 +164,13 @@
           </form>
         </div>
         <p id="charge"><i class="fa-solid fa-circle-exclamation"></i>Your card will be charged $199.00</p>
-        <a href="checkout-success.html" class="checkout-btn">Checkout securely<i class="fa-solid fa-lock"></i></a>
-        <a href="../index.html" class="back">
-          <i class="fa-solid fa-chevron-left"></i>
-          <span>go back</span>
-        </a>
+        <div class="btns">
+          <a href="checkout-success.html" class="checkout-btn">Checkout securely<i class="fa-solid fa-lock"></i></a>
+          <a href="../index.html" class="back">
+            <i class="fa-solid fa-chevron-left"></i>
+            <span>go back</span>
+          </a>
+        </div>
       </section>
     </main>
     <!-- Footer -->
