@@ -13,7 +13,7 @@
     <!-- CSS & Font Awesome icons -->
     <link rel="stylesheet" href="src/css/styles.css" />
     <script src="https://kit.fontawesome.com/11ca27fbbb.js" crossorigin="anonymous"></script>
-    <title>Rainy Days | Home</title>
+    <title>Rainy Days | About</title>
 </head>
 
 <body>
@@ -24,9 +24,11 @@
             <i class="fa-solid fa-bars mobile-menu"></i>
             <span class="mobile-menu-text">Menu</span>
         </label>
-        <img src="assets/images/logo.png" alt="Rainy Days logo" id="logo" />
-        <a href="checkout/checkout.html">
-            <i class="fa-solid fa-cart-shopping" id="mobile-cart"></i>
+        <a href="index.html">
+            <img src="assets/images/logo.png" alt="Rainy Days logo" id="logo" />
+        </a>
+        <a href="checkout/checkout.html" aria-label="Shopping cart">
+            <i class="fa-solid fa-cart-shopping mobile-cart"></i>
         </a>
         </div>
         <nav>
@@ -50,7 +52,7 @@
                 <a href="contact.html">Contact</a>
                 <i class="fa-solid fa-chevron-right nav-chevron"></i>
             </div>
-            <a href="checkout/checkout.html">
+            <a href="checkout/checkout.html" aria-label="Shopping cart">
                 <i class="fa-solid fa-cart-shopping" id="desktop-cart"></i>
             </a>
         </nav>
@@ -118,7 +120,7 @@
                         Sign up to our newsletter to be the first to hear about the latest
                         news, product launches and events!
                     </p>
-                    <form method="GET">
+                    <form method="GET" class="display-table">
                         <label for="email"></label>
                         <input type="email" name="email" id="email" placeholder="Email Address" required>
                         <button class="submit-btn"><i class="fa-solid fa-chevron-right submit-chevron"></i></button>

@@ -29,7 +29,7 @@
       src="https://kit.fontawesome.com/11ca27fbbb.js"
       crossorigin="anonymous"
     ></script>
-    <title>Rainy Days | Home</title>
+    <title>Rainy Days | Checkout</title>
   </head>
   <body>
     <!-- Header -->
@@ -39,9 +39,12 @@
         <i class="fa-solid fa-bars mobile-menu"></i>
         <span class="mobile-menu-text">Menu</span>
       </label>
-      <img src="../assets/images/logo.png" alt="Rainy Days logo" id="logo" />
-      <a href="checkout.html">
-        <i class="fa-solid fa-cart-shopping" id="mobile-cart"></i>
+      <a href="../index.html">
+        <img src="../assets/images/logo.png" alt="Rainy Days logo" id="logo" />
+      </a>
+      <a id="decoration" href="checkout.html" aria-label="Shopping cart">
+        <i class="fa-solid fa-cart-shopping mobile-cart" id="mobile-margin"></i>
+        <span id="mobile-item">(1)</span>
       </a>
       </div>
       <nav>
@@ -65,7 +68,7 @@
           <a href="contact.html">Contact</a>
           <i class="fa-solid fa-chevron-right nav-chevron"></i>
         </div>
-        <a href="checkout.html">
+        <a href="checkout.html" aria-label="Shopping cart">
           <i class="fa-solid fa-cart-shopping" id="desktop-cart"></i>
         </a>
       </nav>
@@ -73,6 +76,97 @@
     <!-- Main content -->
     <main class="main-container">
       <p class="pages">Home / <span class="active-page">Contact</span></p>
+      <h1 class="checkout-heading">Checkout</h1>
+      <section class="order-summary">
+        <h2 class="order-heading">Order Summary <span class="light-weight">(1)</span></h2>
+        <hr>
+        <div class="order-container">
+          <div class="order-img">
+            <img class="background" src="../products/images/product-bg.png" alt="Grey product background">
+            <img class="product-image" src="../products/images/stormshield.png" alt="Product image of the Storm Shield jacket">
+          </div>
+          <div class="product-info">
+            <p id="product-heading">Storm Shield Waterproof Jacket</p>
+            <p class="info">Size: <span class="light-weight">M</span></p>
+            <p class="info">Qty: <span class="light-weight">1</span></p>
+            <p class="light-weight">$199.00</p>
+            <div class="display">
+              <button id="minus-btn">
+                <span>
+                  <i class="fas fa-minus"></i>
+                </span>
+              </button>
+              <input type="number" value="1" id="qty-nr">
+              <button id="plus-btn">
+                <span>
+                  <i class="fas fa-plus"></i>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <p class="total-text">Subtotal<span class="totals">$199.00</span></p>
+        <p class="total-text">Shipping<span class="totals">FREE</span></p>
+        <p class="total-text">Grand total<span class="totals">$199.00</span></p>
+      </section>
+      <section class="payment-width">
+        <h2 class="headings">Delivery Details</h2>
+        <hr>
+        <form class="delivery-form">
+          <input class="name-details" type="text" name="fname" placeholder="First name*" required>
+          <input class="name-details" type="text" name="lname" placeholder="Last name*" required>
+          <input class="address-details" type="text" name="address" placeholder="Address*" required>
+          <input class="address-details" type="text" name="city" placeholder="City*" required>
+          <input class="address-details" type="number" name="postcode" placeholder="Postcode*" required>
+          <input class="address-details" type="text" name="country" placeholder="Country*" required>
+        </form>
+        <h2 class="headings">Contact Details</h2>
+        <hr>
+        <form class="contact">
+          <input class="contact-details" type="email" name="email" placeholder="Email*" required>
+          <input class="contact-details" type="tel" name="phone" placeholder="Phone*" required>
+          <input type="checkbox" name="contactdetails" id="checkbox">
+          <label for="checkbox">
+            Keep me posted on exclusive offers, product drops and Rainy Days updates.<br>
+            <span id="consent">I consent to the processing of my personal data for profile-based marketing purposes, as described in our <span>Privacy Policy</span>.</span>
+          </label>
+        </form>
+      </section>
+      <section class="payment-width">
+        <h2 class="headings">Payment</h2>
+        <hr>
+        <p class="light-weight">All transactions are secure and encrypted.</p>
+        <div class="payment-box">
+          <div class="payment">
+            <input type="radio" id="card" name="card" checked>
+            <label>Credit Card</label>
+            <div class="card-container">
+              <img src="images/american-express-straight-128px.png" alt="American Express card image">
+              <img src="images/visa-curved-128px.png" alt="Visa card image">
+              <img src="images/mastercard-straight-128px.png" alt="Mastercard card image">
+              <img src="images/maestro-straight-128px.png" alt="Maestro card image">
+            </div>
+          </div>
+          <form class="payment-form">
+            <div class="number-wrapper">
+              <input type="number" name="cardnumber" placeholder="Card number" required>
+              <i class="fa-solid fa-lock"></i>
+            </div>
+            <input type="text" name="nameoncard" placeholder="Name on card" required>
+            <div class="exp-security">
+              <input type="text" name="expirydate" placeholder="Expiration date (MM/YY)" />
+              <input type="number" name="securitycode" max="3" placeholder="Security Code" required>
+            </div>
+          </form>
+        </div>
+        <p id="charge"><i class="fa-solid fa-circle-exclamation"></i>Your card will be charged $199.00</p>
+        <a href="checkout-success.html" class="checkout-btn">Checkout securely<i class="fa-solid fa-lock"></i></a>
+        <a href="../index.html" class="back">
+          <i class="fa-solid fa-chevron-left"></i>
+          <span>go back</span>
+        </a>
+      </section>
     </main>
     <!-- Footer -->
     <footer>
@@ -105,7 +199,7 @@
               Sign up to our newsletter to be the first to hear about the latest
               news, product launches and events!
             </p>
-            <form method="GET">
+            <form method="GET" class="display-table">
               <label for="email"></label>
               <input type="email" name="email" id="email" placeholder="Email Address" required>
               <button class="submit-btn"><i class="fa-solid fa-chevron-right submit-chevron"></i></button>
