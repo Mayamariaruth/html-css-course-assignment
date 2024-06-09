@@ -46,9 +46,12 @@ header {
   justify-content: space-between;
   align-items: center;
   padding-bottom: 10px;
-  box-shadow: 0px -5px 7px -3px rgba(0, 0, 0, 0.45);
   z-index: 9999;
   position: relative;
+}
+
+.border-btm {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.17);
 }
 
 header.active {
@@ -121,10 +124,23 @@ header label {
   justify-content: space-between;
 }
 
+.on-page {
+  text-decoration: underline;
+  text-decoration-line: 1px;
+  text-underline-offset: 2px;
+}
+
+nav span:hover {
+  text-decoration: underline;
+  text-decoration-line: 1px;
+  text-underline-offset: 2px;
+}
+
 .nav-chevron {
   -webkit-text-stroke: 0.9px #fff;
   margin-right: 1rem;
 }
+
 
 /* Hero section */
 .hero-container {
@@ -190,6 +206,11 @@ header label {
   font-weight: 500;
   border-radius: 2px;
   margin-bottom: 1rem;
+}
+
+.collections-btn:hover {
+  color: #fff;
+  background-color: #000;
 }
 
 .padding {
@@ -273,6 +294,12 @@ header label {
   border: solid;
 }
 
+.bestsellers-btns:hover {
+  color: #fff;
+  background-color: #000;
+  border: #000;
+}
+
 #fleece-btn {
   padding: 9px 35px;
 }
@@ -316,6 +343,10 @@ footer {
   color: #000;
 }
 
+.footer-socials a:hover {
+  font-size: 2rem;
+}
+
 .newsletter {
   text-align: center;
 }
@@ -352,6 +383,11 @@ footer {
   background-color: #000;
   border-radius: 3px;
   padding: 5px 16px 7px;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #8B8B8D
 }
 
 .submit-chevron {
@@ -457,7 +493,7 @@ footer {
   margin-left: 14px;
   margin-top: 4px;
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 2px;
   border: solid 1px;
   margin-bottom: 1.2rem;
 }
@@ -521,11 +557,11 @@ input::placeholder {
 }
 
 textarea {
-  width: 90%;
+  width: 91%;
   margin-left: 14px;
   margin-top: 8px;
   padding: 6px 6px 95px;
-  border-radius: 5px;
+  border-radius: 2px;
   border: solid 1px;
 }
 
@@ -535,8 +571,8 @@ textarea {
   color: #fff;
   border-radius: 5px;
   border: transparent;
-  padding: 8px 34px;
-  font-size: 1rem;
+  padding: 10px 40px;
+  font-size: 1.1rem;
   text-transform: uppercase;
   font-weight: 600;
   letter-spacing: 1px;
@@ -664,18 +700,33 @@ textarea {
   padding: 6px;
 }
 
+.size-btn:hover {
+  background-color: #000;
+  color: #fff;
+  cursor: pointer;
+}
+
 .add-btn {
   background-color: #8B8B8D;
   color: #fff;
   border-radius: 2px;
   border: transparent;
   padding: 10px 0;
-  font-size: 1rem;
+  font-size: 1.1rem;
   text-transform: uppercase;
   font-weight: 600;
   letter-spacing: 1px;
   margin-bottom: 1rem;
   width: 100%;
+}
+
+.add-btn:hover,
+.message-btn:hover,
+#minus-btn:hover,
+#plus-btn:hover,
+.shop-btn:hover {
+  background-color: #000;
+  cursor: pointer;
 }
 
 .size-padding {
@@ -848,6 +899,10 @@ input[type="checkbox"] {
   margin-right: 0;
 }
 
+input[type="checkbox"]:checked {
+  accent-color: #000;
+}
+
 .contact label {
   font-size: 13px;
   width: 90%;
@@ -972,6 +1027,13 @@ input[type="radio"] {
   margin-left: 6px;
 }
 
+.checkout-btn:hover,
+.checkout-btn i:hover {
+  background-color: #fff;
+  color: #000;
+  border: solid 1.5px #000;
+}
+
 .back {
   color: #000;
   text-align: center;
@@ -1065,8 +1127,6 @@ input[type="radio"] {
   /* Header/navigation bar */
   header {
     justify-content: space-between;
-    padding-bottom: 0;
-    box-shadow: none;
   }
 
   nav {
@@ -1079,6 +1139,12 @@ input[type="radio"] {
     box-shadow: none;
     padding-top: 0;
     background-color: transparent;
+  }
+
+  .on-page {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
   }
 
   .menu {
@@ -1102,6 +1168,10 @@ input[type="radio"] {
   #desktop-cart {
     display: contents;
     font-size: 1.3rem;
+  }
+
+  #desktop-item {
+    display: contents;
   }
   
   nav a {
@@ -1316,12 +1386,6 @@ input[type="radio"] {
 
   .form-container h1 {
     font-size: 1.8rem;
-  }
-
-  .form-container input,
-  textarea {
-    border-radius: 2px;
-    border: solid 0.1px;
   }
 
   /* Products page */
