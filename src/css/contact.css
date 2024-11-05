@@ -1,0 +1,127 @@
+.contact-container {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.form-container input {
+  width: 90%;
+  margin-left: 14px;
+  margin-top: 4px;
+  padding: 10px;
+  border-radius: 2px;
+  border: solid 1px;
+  margin-bottom: 1.2rem;
+}
+
+input::placeholder {
+  font-weight: 300;
+  color: #9b9b9f;
+}
+
+.form-container label,
+.form-container p {
+  padding-left: 12px;
+  display: block;
+}
+
+.form-container p {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.red-color {
+  color: #940404;
+}
+
+.contact-info {
+  background-color: rgba(139, 139, 141, 0.2);
+  padding: 15px 25px 35px;
+  margin: 1.1rem;
+  box-shadow: -0px 1px 9px -0px #8b8b8d;
+}
+
+.form-container h1 {
+  font-size: 1.6rem;
+  margin-left: 12px;
+}
+
+.contact-info h2 {
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  line-height: 22px;
+}
+
+.contact-info p {
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  line-height: 15px;
+}
+
+.contact-info a {
+  color: #000;
+  font-weight: 400;
+}
+
+#underline {
+  text-decoration: underline;
+  font-weight: 400;
+}
+
+textarea {
+  width: 91%;
+  margin-left: 14px;
+  margin-top: 8px;
+  padding: 6px 6px 95px;
+  border-radius: 2px;
+  border: solid 1px;
+}
+
+.message-btn {
+  margin-left: 12px;
+  background-color: #6f6f6f;
+  color: #fff;
+  border-radius: 5px;
+  border: transparent;
+  padding: 10px 40px;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-top: 1rem;
+  margin-bottom: 4rem;
+}
+
+/* Media queries */
+@media (min-width: 768px) {
+  .contact-container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .form-container {
+    flex: 1;
+  }
+
+  .contact-info {
+    flex: 1;
+    margin: 1.8rem 4rem auto 5rem;
+    max-width: 400px;
+    padding-bottom: 60px;
+  }
+
+  .contact-info h2 {
+    font-size: 1.2rem;
+  }
+
+  .contact-info p {
+    font-size: 14px;
+  }
+
+  .form-container h1 {
+    font-size: 1.8rem;
+  }
+}

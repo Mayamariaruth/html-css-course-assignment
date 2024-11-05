@@ -1,0 +1,174 @@
+#in-stock {
+  color: #356d1a;
+  margin-left: 14px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.img-container {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+}
+
+#size {
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.size-container {
+  margin-bottom: 1.6rem;
+}
+
+.size-btn {
+  font-size: 1.1rem;
+  font-weight: 300;
+  background-color: #fff;
+  border: solid 1.5px #000;
+  color: #545454;
+  padding: 6px;
+}
+
+.size-btn:hover {
+  background-color: #000;
+  color: #fff;
+  cursor: pointer;
+}
+
+.add-btn {
+  background-color: #6f6f6f;
+  color: #fff;
+  border-radius: 2px;
+  border: transparent;
+  padding: 10px 0;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.add-btn:hover,
+.message-btn:hover,
+#minus-btn:hover,
+#plus-btn:hover,
+.shop-btn:hover {
+  background-color: #000;
+  cursor: pointer;
+}
+
+.size-padding {
+  padding-left: 11px;
+  padding-right: 11px;
+}
+
+.m-padding {
+  padding-left: 9px;
+  padding-right: 9px;
+}
+
+.details {
+  font-weight: 300;
+  letter-spacing: 2px;
+  width: 80%;
+}
+
+.margin-btm {
+  margin-bottom: 4rem;
+}
+
+#line-large {
+  display: none;
+}
+
+/* Media queries */
+@media (min-width: 768px) {
+  .details-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 80px;
+    grid-template-areas:
+      "image heading"
+      "image details"
+      "image price"
+      "image size"
+      "image add-btn";
+  }
+
+  .img-container {
+    grid-area: image;
+    height: 200px;
+    margin-left: 1rem;
+    margin-top: 1rem;
+  }
+
+  .heading-container {
+    grid-area: heading;
+  }
+
+  .product-details {
+    grid-area: details;
+  }
+
+  .price {
+    grid-area: price;
+  }
+
+  .size-container {
+    grid-area: size;
+    margin-top: 0;
+  }
+
+  .add-btn {
+    grid-area: add-btn;
+    margin-top: 0;
+    width: 300px;
+    padding: 13px 0;
+  }
+
+  #details-heading {
+    margin: 2rem 0 0;
+  }
+
+  .product-details h2 {
+    display: none;
+  }
+
+  #line-large {
+    display: block;
+  }
+
+  .details {
+    width: 100%;
+  }
+
+  .price p {
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+
+  #in-stock {
+    font-size: 1rem;
+  }
+
+  #size {
+    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  .size-btn {
+    font-size: 1.3rem;
+  }
+
+  .size-padding {
+    padding-left: 13px;
+    padding-right: 13px;
+  }
+
+  .m-padding {
+    padding-left: 11px;
+    padding-right: 11px;
+  }
+}
