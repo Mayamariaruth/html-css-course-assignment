@@ -276,10 +276,21 @@ nav span:hover {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  mix-blend-mode: multiply;
 }
 
 .column-bestsellers .all-height {
   width: 90%;
+  left: auto;
+}
+
+.img-styling {
+  width: 80%;
+  left: auto;
+}
+
+.all-size {
+  width: 120%;
   left: auto;
 }
 
@@ -570,7 +581,6 @@ footer {
 
   .bestsellers-btns {
     bottom: 150px;
-    left: 46%;
     font-size: 1.3rem;
     padding: 10px 25px;
   }
