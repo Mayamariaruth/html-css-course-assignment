@@ -1,6 +1,7 @@
 import "./api.js";
 import "./bag.js";
 import "./checkout.js";
+import "./contact.js";
 import "./products.js";
 
 // Toggle nav bar color for mobile screens
