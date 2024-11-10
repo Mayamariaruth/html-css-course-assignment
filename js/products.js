@@ -56,7 +56,6 @@ async function displayFilteredProducts() {
     const filteredProducts = products.filter(
       (product) => product.gender === apiGender
     );
-    console.log("Filtered Products:", filteredProducts);
 
     // Display each filtered product
     filteredProducts.forEach((product) => {
