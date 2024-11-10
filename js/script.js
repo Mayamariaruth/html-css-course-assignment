@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
   links.forEach((link) => {
     const span = link.querySelector("span");
     if (span) {
+      // Check if span exists
       span.classList.remove("on-page");
     }
   });
@@ -40,11 +41,13 @@ document.addEventListener("DOMContentLoaded", () => {
   if (window.location.pathname.endsWith("products.html")) {
     links.forEach((link) => {
       const span = link.querySelector("span");
-      if (
-        (selectedGender === "Men" && span.textContent.trim() === "Men") ||
-        (selectedGender === "Women" && span.textContent.trim() === "Women")
-      ) {
-        span.classList.add("on-page");
+      if (span) {
+        if (
+          (selectedGender === "Men" && span.textContent.trim() === "Men") ||
+          (selectedGender === "Women" && span.textContent.trim() === "Women")
+        ) {
+          span.classList.add("on-page");
+        }
       }
     });
   }

@@ -35,14 +35,8 @@
   margin-bottom: 3rem;
 }
 
-#about-img {
+.about-img {
   height: 84vh;
-  width: 355px;
-  object-fit: cover;
-}
-
-#mission-img {
-  height: 85vh;
   width: 355px;
   object-fit: cover;
 }
@@ -94,15 +88,9 @@
     margin-left: 2rem;
   }
 
-  #about-img {
+  .about-img {
     margin-left: 2rem;
     height: 90vh;
     width: 370px;
-  }
-
-  #mission-img {
-    margin-right: 2rem;
-    height: 90vh;
-    width: 380px;
   }
 }

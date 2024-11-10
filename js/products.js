@@ -42,11 +42,16 @@ displayBestsellers();
 
 // Display gendered products on the products.html page based on user choice
 async function displayFilteredProducts() {
+  // Check if we’re on products.html before running the code
+  if (!window.location.pathname.endsWith("products.html")) {
+    return;
+  }
+
   try {
     // Retrieve the selected gender from localStorage or default to "Men"
     const selectedGender = localStorage.getItem("selectedGender") || "Men";
 
-    // Register "Men"/"Women" as "male"/"female" for API filtering
+    // Register "Men"/"Women" to "Male"/"Female" for API filtering
     const apiGender = selectedGender === "Men" ? "Male" : "Female";
 
     const products = await fetchProducts();
@@ -56,6 +61,9 @@ async function displayFilteredProducts() {
     const filteredProducts = products.filter(
       (product) => product.gender === apiGender
     );
+
+    // Clear existing content in productsContainer
+    productsContainer.innerHTML = "";
 
     // Display each filtered product
     filteredProducts.forEach((product) => {
@@ -78,7 +86,7 @@ async function displayFilteredProducts() {
       // Get the specific class based on the product title, or leave empty if not found
       const imageClass = productClass[product.title] || "";
 
-      // Generate HTML for each product with the mapped class applied to the image
+      // Generate HTML for each product with the classes applied
       const productHTML = `
       <a href="product_detail.html?id=${product.id}" class="product">
         <div class="image-container">
