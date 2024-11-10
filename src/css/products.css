@@ -54,25 +54,24 @@
   mix-blend-mode: multiply;
 }
 
-#wetweather,
-#showershield,
-#rainready,
-#fleece,
-#windproof,
-#allweather {
+.product-styling {
   top: 50%;
   left: 50%;
   width: auto;
-  height: 76%;
+  height: 72%;
   transform: translate(-50%, -50%);
 }
 
-#fleece {
-  height: 72%;
+.product-styling2 {
+  height: 81%;
 }
 
-#windproof {
-  height: 69%;
+.product-styling3 {
+  height: 70%;
+}
+
+.product-styling4 {
+  height: 76%;
 }
 
 .products h2 {
