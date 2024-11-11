@@ -137,3 +137,45 @@ async function fetchProductById(id) {
   if (!response.ok) throw new Error("Network response was not ok");
   return await response.json();
 }
+
+// Function to update the page with product details
+function updateProductDetails(product) {
+  // Update breadcrumb and heading
+  document.getElementById(
+    "breadcrumb"
+  ).innerHTML = `Home / Products / <span class="active-page">${product.title}</span>`;
+  document.getElementById("details-heading").textContent = product.title;
+
+  // Update price and stock status
+  const priceElement = document.getElementById("price");
+  priceElement.innerHTML = `$${product.price.toFixed(3)} <span id="in-stock">${
+    product.inStock ? "In stock" : "Out of stock"
+  }</span>`;
+
+  // Update product image
+  const productImage = document.getElementById("product-image");
+  productImage.src = product.image;
+  productImage.alt = `Product image of ${product.title}`;
+
+  // Update available sizes by creating buttons dynamically
+  const sizeContainer = document.getElementById("size-container");
+  sizeContainer.innerHTML = `<p id="size">SIZE:</p>`;
+  product.sizes.forEach((size) => {
+    const button = document.createElement("button");
+    button.className = "size-btn";
+    if (size === "S" || size === "L") button.classList.add("size-padding");
+    if (size === "M") button.classList.add("m-padding");
+    button.textContent = size;
+    sizeContainer.appendChild(button);
+  });
+
+  // Update product description
+  const descriptionContainer = document.getElementById("product-description");
+  descriptionContainer.innerHTML = `<h2>Details</h2>`;
+  product.description.split("\n").forEach((paragraph) => {
+    const p = document.createElement("p");
+    p.className = "details";
+    p.textContent = paragraph;
+    descriptionContainer.appendChild(p);
+  });
+}
