@@ -3,6 +3,10 @@
   flex-direction: column-reverse;
 }
 
+.input-group {
+  margin-bottom: 1.2rem;
+}
+
 .form-container input {
   width: 90%;
   margin-left: 14px;
@@ -10,7 +14,6 @@
   padding: 10px;
   border-radius: 2px;
   border: solid 1px;
-  margin-bottom: 1.2rem;
 }
 
 input::placeholder {
@@ -93,6 +96,18 @@ textarea {
   letter-spacing: 1px;
   margin-top: 1rem;
   margin-bottom: 4rem;
+}
+
+.error-message {
+  color: red;
+  margin-top: 7px;
+  margin-left: 14px;
+  font-size: 15px;
+  display: none;
+}
+
+.error-message.visible {
+  display: block;
 }
 
 /* Media queries */
