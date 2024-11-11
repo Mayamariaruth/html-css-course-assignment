@@ -123,3 +123,26 @@
     margin-left: 1rem;
   }
 }
+
+@media (min-width: 998px) {
+  .product-heading {
+    font-size: 2rem;
+  }
+
+  .product-text {
+    font-size: 1.1rem;
+    max-width: 450px;
+  }
+
+  #product-count {
+    font-size: 14px;
+  }
+
+  .products h2 {
+    font-size: 1.3rem;
+  }
+
+  .products p {
+    font-size: 1rem;
+  }
+}

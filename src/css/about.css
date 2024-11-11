@@ -94,3 +94,17 @@
     width: 370px;
   }
 }
+
+@media (min-width: 998px) {
+  #about-img {
+    margin-left: 4rem;
+  }
+
+  #mission-img {
+    margin-right: 4rem;
+  }
+
+  .text-box {
+    margin-left: 4rem;
+  }
+}

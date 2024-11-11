@@ -148,7 +148,7 @@ function updateProductDetails(product) {
 
   // Update price and stock status
   const priceElement = document.getElementById("price");
-  priceElement.innerHTML = `$${product.price.toFixed(3)} <span id="in-stock">${
+  priceElement.innerHTML = `$${product.price.toFixed(2)} <span id="in-stock">${
     product.inStock ? "In stock" : "Out of stock"
   }</span>`;
 
