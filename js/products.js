@@ -157,6 +157,25 @@ function updateProductDetails(product) {
   productImage.src = product.image;
   productImage.alt = `Product image of ${product.title}`;
 
+  // Add styling classes to images
+  const imageClassMap = {
+    "Rainy Days Silverbreeze Jacket": "sm-image",
+    "Rainy Days XX Jacket": "sm-image",
+    "Rainy Days Gelventure Jacket": "sm-image",
+    "Rainy Days VitaForce Jacket": "sm-image",
+    "Rainy Days Thunderbolt Jacket": "lg-image",
+    "Rainy Days M83 Jacket": "sm-image",
+    "Rainy Days Venture Jacket": "lg-image",
+    "Rainy Days Puddle Jumper Jacket": "lg-image",
+    "Rainy Days TrailBlaze Jacket": "lg-image",
+  };
+
+  // Apply the classes based on product titles
+  const imageClass = imageClassMap[product.title];
+  if (imageClass) {
+    productImage.classList.add(imageClass);
+  }
+
   // Update available sizes by creating buttons dynamically
   const sizeContainer = document.getElementById("size-container");
   sizeContainer.innerHTML = `<p id="size">SIZE:</p>`;
