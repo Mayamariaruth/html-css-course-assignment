@@ -111,3 +111,29 @@ async function displayFilteredProducts() {
 }
 
 displayFilteredProducts();
+
+document.addEventListener("DOMContentLoaded", async () => {
+  // Check if we're on the product detail page by looking for "id" in the URL
+  const productId = new URLSearchParams(window.location.search).get("id");
+  if (!productId) return;
+
+  try {
+    // Fetch and display product details
+    const product = await fetchProductById(productId);
+    if (product) {
+      updateProductDetails(product);
+    } else {
+      console.error("Product not found");
+    }
+  } catch (error) {
+    console.error("Error fetching product details:", error);
+  }
+});
+
+// Function to fetch product data by ID
+async function fetchProductById(id) {
+  const apiUrl = `https://api.noroff.dev/api/v1/rainy-days/${id}`;
+  const response = await fetch(apiUrl);
+  if (!response.ok) throw new Error("Network response was not ok");
+  return await response.json();
+}
