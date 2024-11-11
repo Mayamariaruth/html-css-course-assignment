@@ -82,6 +82,11 @@
   display: none;
 }
 
+.sm-image {
+  width: 75%;
+  left: 12%;
+}
+
 /* Media queries */
 @media (min-width: 768px) {
   .margin-btm {
@@ -177,6 +182,16 @@
   .m-padding {
     padding-left: 11px;
     padding-right: 11px;
+  }
+
+  .sm-image {
+    width: 90%;
+    left: 5%;
+  }
+
+  .lg-image {
+    width: 115%;
+    left: -2rem;
   }
 }
 
