@@ -1,4 +1,5 @@
 import { fetchProducts } from "./api.js";
+import { addItemToBag, updateBagCount } from "./bag.js";
 
 async function displayBestsellers() {
   const products = await fetchProducts();

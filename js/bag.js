@@ -13,3 +13,16 @@ export function addItemToBag(productId, size) {
 
   localStorage.setItem("shoppingBag", JSON.stringify(bag));
 }
+
+// Update the shopping bag count in the navbar
+export function updateBagCount() {
+  const bag = JSON.parse(localStorage.getItem("shoppingBag")) || [];
+  const totalCount = bag.reduce((acc, item) => acc + item.quantity, 0);
+
+  // Update both mobile and desktop bag count elements
+  const mobileBagCount = document.querySelector("#bag-count");
+  const desktopBagCount = document.querySelector("#desktop-bag-count");
+
+  if (mobileBagCount) mobileBagCount.textContent = totalCount;
+  if (desktopBagCount) desktopBagCount.textContent = totalCount;
+}
