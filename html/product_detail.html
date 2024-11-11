@@ -58,38 +58,26 @@
   </header>
   <!-- Main content -->
   <main class="main-container margin-btm">
-    <p class="pages">Home / Products / <span class="active-page">Storm Shield Waterproof Jacket</span></p>
+    <p class="pages">Home / Products / <span class="active-page" id="breadcrumb">Product Name</span></p>
     <section class="details-container">
       <div class="heading-container">
-        <h1 class="product-heading" id="details-heading">Storm Shield Waterproof Jacket</h1>
+        <h1 class="product-heading" id="details-heading">Product Name</h1>
       </div>
       <div class="price">
-        <p>$199.00 <span id="in-stock">In stock</span></p>
+        <p id="price">$0.00 <span id="in-stock">In stock</span></p>
         <hr id="line-large">
       </div>
       <div class="img-container">
-        <img src="../assets/images/products/product-bg.png" alt="Grey product background" class="background">
-        <img src="../assets/images/products/stormshield.png" alt="Product image of the Storm Shield jacket" class="product-image">
+        <img src="../assets/images/products/product-bg.png" alt="Background" class="background">
+        <img id="product-image" src="../assets/images/products/default.png" alt="Product image" class="product-image">
       </div>
-      <div class="size-container">
-        <p id="size">SIZE:</p>
-        <button class="size-btn">XS</button>
-        <button class="size-btn size-padding">S</button>
-        <button class="size-btn m-padding">M</button>
-        <button class="size-btn size-padding">L</button>
-        <button class="size-btn">XL</button>
+      <div class="size-container" id="size-container">
+        <!-- Sizes will be dynamically generated here --> 
       </div>
-      <button class="add-btn">Add to bag</button>
+      <button class="add-btn" id="add-to-cart">Add to bag</button>
       <hr>
-      <div class="product-details" id="grid-height">
-        <h2>Details</h2>
-        <p class="details">The Storm Shield Waterproof Jacket is the ultimate protection against the elements.</p>
-        <p class="details">This high-performance jacket is constructed with durable waterproof fabric that effortlessly
-          repels rain, ensuring you stay dry and comfortable no matter what the weather throws at you.
-          The innovative storm shield technology provides an extra layer of defense against wind, keeping you warm and
-          shielded from the elements.</p>
-        <p class="details">This jacket is perfect for any outdoor adventure, making it a must-have addition to your
-          wardrobe.</p>
+      <div class="product-details" id="product-description">
+        <!-- Product description will be populated here -->
       </div>
     </section>
   </main>
