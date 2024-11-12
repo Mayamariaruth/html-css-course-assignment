@@ -32,3 +32,5 @@ export function updateBagCount() {
     if (desktopBagCount) desktopBagCount.textContent = ""; // Clear content if 0
   }
 }
+
+updateBagCount();

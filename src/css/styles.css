@@ -122,7 +122,6 @@ nav a {
 .mobile-cart {
   font-size: 1.5rem;
   color: #000;
-  margin-right: 1rem;
   margin-top: 1.5rem;
 }
 
@@ -133,6 +132,11 @@ nav a {
 
 #underline {
   text-decoration: none !important;
+  margin-right: 1rem;
+}
+
+#desktop-bag-count {
+  display: none;
 }
 
 .logo-container {
@@ -562,6 +566,10 @@ footer {
   #desktop-cart {
     display: contents;
     font-size: 1.3rem;
+  }
+
+  #desktop-bag-count {
+    display: contents;
   }
 
   #desktop-item {

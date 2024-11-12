@@ -1,214 +1,351 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Rainy Days. Discover top-quality rain jackets. Shop our stylish, waterproof, and durable raincoats perfect for any weather. Free shipping and easy returns. Stay dry and fashionable with Rainy Days rain jackets." />
-  <meta name="keywords" content="Rainy Days rain jackets, waterproof rain jackets, all-weather raincoats, rain jackets for men, rain jackets for women, raincoats online, buy rain jackets, best rain jackets, outdoor rain gear, lightweight rain jackets, raincoats for running, rain jackets for hiking" />
-  <!-- Favicon -->
-  <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png" />
-  <!-- CSS & Font Awesome icons -->
-  <link rel="stylesheet" href="../src/css/styles.css" />
-  <script src="https://kit.fontawesome.com/11ca27fbbb.js" crossorigin="anonymous"></script>
-  <script defer type="module" src="../js/script.js"></script>
-  <title>Rainy Days | Checkout</title>
-</head>
-<body>
-  <!-- Header -->
-  <header class="border-btm">
-    <input type="checkbox" id="nav-box" />
-    <label for="nav-box">
-      <i class="fa-solid fa-bars mobile-menu"></i>
-      <span class="mobile-menu-text">Menu</span>
-    </label>
-    <a href="../index.html">
-      <img src="../assets/images/logo.png" alt="Rainy Days logo" id="logo" />
-    </a>
-    <a id="underline" href="checkout.html" aria-label="Shopping cart">
-      <i class="fa-solid fa-cart-shopping mobile-cart"></i>
-      <span id="bag-count" class="bag-count">0</span>
-    </a>
-    <nav>
-      <a href="../index.html" class="menu">
-        <span>Home</span>
-        <i class="fa-solid fa-chevron-right nav-chevron"></i>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Rainy Days. Discover top-quality rain jackets. Shop our stylish, waterproof, and durable raincoats perfect for any weather. Free shipping and easy returns. Stay dry and fashionable with Rainy Days rain jackets."
+    />
+    <meta
+      name="keywords"
+      content="Rainy Days rain jackets, waterproof rain jackets, all-weather raincoats, rain jackets for men, rain jackets for women, raincoats online, buy rain jackets, best rain jackets, outdoor rain gear, lightweight rain jackets, raincoats for running, rain jackets for hiking"
+    />
+    <!-- Favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../assets/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../assets/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../assets/favicon/favicon-16x16.png"
+    />
+    <!-- CSS & Font Awesome icons -->
+    <link rel="stylesheet" href="../src/css/styles.css" />
+    <script
+      src="https://kit.fontawesome.com/11ca27fbbb.js"
+      crossorigin="anonymous"
+    ></script>
+    <script defer type="module" src="../js/script.js"></script>
+    <title>Rainy Days | Checkout</title>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="border-btm">
+      <input type="checkbox" id="nav-box" />
+      <label for="nav-box">
+        <i class="fa-solid fa-bars mobile-menu"></i>
+        <span class="mobile-menu-text">Menu</span>
+      </label>
+      <a href="../index.html">
+        <img src="../assets/images/logo.png" alt="Rainy Days logo" id="logo" />
       </a>
-      <a href="products.html" class="menu">
-        <span>Men</span>
-        <i class="fa-solid fa-chevron-right nav-chevron"></i>
+      <a id="underline" href="checkout.html" aria-label="Shopping cart">
+        <i class="fa-solid fa-cart-shopping mobile-cart"></i>
+        <span id="bag-count" class="bag-count">0</span>
       </a>
-      <a href="products.html" class="menu">
-        <span class="on-page">Women</span>
-        <i class="fa-solid fa-chevron-right nav-chevron"></i>
-      </a>
-      <a href="about.html" class="menu">
-        <span>About</span>
-        <i class="fa-solid fa-chevron-right nav-chevron"></i>
-      </a>
-      <a href="contact.html" class="menu">
-        <span>Contact</span>
-        <i class="fa-solid fa-chevron-right nav-chevron"></i>
-      </a>
-      <a href="checkout.html" aria-label="Shopping cart" class="menu">
-        <i class="fa-solid fa-cart-shopping" id="desktop-cart"></i>
-        <span id="desktop-bag-count" class="bag-count">0</span>
-      </a>
-    </nav>
-  </header>
-  <div id="notification-box" class="notification hidden">
-    You've added <span id="product-name"></span> to your bag!
-  </div>
-  <!-- Main content -->
-  <main class="main-container">
-    <p class="pages">Home / <span class="active-page">Contact</span></p>
-    <h1 class="checkout-heading">Checkout</h1>
-    <div class="checkout-container">
-      <section class="order-summary">
-        <h2 class="order-heading">Order Summary <span class="light-weight">(1)</span></h2>
-        <hr>
-        <div class="order-container">
-          <div class="order-img">
-            <img class="background" src="../assets/images/products/product-bg.png" alt="Grey product background">
-            <img class="product-image" src="../assets/images/products/stormshield.png"
-              alt="Product image of the Storm Shield jacket">
-          </div>
-          <div class="product-info">
-            <p id="product-heading">Storm Shield Waterproof Jacket</p>
-            <p class="info">Size: <span class="light-weight">M</span></p>
-            <p class="info">Qty: <span class="light-weight">1</span></p>
-            <p class="light-weight">$199.00</p>
-            <div class="display">
-              <button id="minus-btn">
-                <span>
-                  <i class="fas fa-minus"></i>
-                </span>
-              </button>
-              <input type="number" value="1" id="qty-nr">
-              <button id="plus-btn">
-                <span>
-                  <i class="fas fa-plus"></i>
-                </span>
-              </button>
+      <nav>
+        <a href="../index.html" class="menu">
+          <span>Home</span>
+          <i class="fa-solid fa-chevron-right nav-chevron"></i>
+        </a>
+        <a href="products.html" class="menu">
+          <span>Men</span>
+          <i class="fa-solid fa-chevron-right nav-chevron"></i>
+        </a>
+        <a href="products.html" class="menu">
+          <span class="on-page">Women</span>
+          <i class="fa-solid fa-chevron-right nav-chevron"></i>
+        </a>
+        <a href="about.html" class="menu">
+          <span>About</span>
+          <i class="fa-solid fa-chevron-right nav-chevron"></i>
+        </a>
+        <a href="contact.html" class="menu">
+          <span>Contact</span>
+          <i class="fa-solid fa-chevron-right nav-chevron"></i>
+        </a>
+        <a href="checkout.html" aria-label="Shopping cart" class="menu">
+          <i class="fa-solid fa-cart-shopping" id="desktop-cart"></i>
+          <span id="desktop-bag-count" class="bag-count">0</span>
+        </a>
+      </nav>
+    </header>
+    <div id="notification-box" class="notification hidden">
+      You've added <span id="product-name"></span> to your bag!
+    </div>
+    <!-- Main content -->
+    <main class="main-container">
+      <p class="pages">Home / <span class="active-page">Contact</span></p>
+      <h1 class="checkout-heading">Checkout</h1>
+      <div class="checkout-container">
+        <section class="order-summary">
+          <h2 class="order-heading">
+            Order Summary <span class="light-weight">(1)</span>
+          </h2>
+          <hr />
+          <div class="order-container">
+            <div class="order-img">
+              <img
+                class="background"
+                src="../assets/images/products/product-bg.png"
+                alt="Grey product background"
+              />
+              <img
+                class="product-image"
+                src="../assets/images/products/stormshield.png"
+                alt="Product image of the Storm Shield jacket"
+              />
+            </div>
+            <div class="product-info">
+              <p id="product-heading">Storm Shield Waterproof Jacket</p>
+              <p class="info">Size: <span class="light-weight">M</span></p>
+              <p class="info">Qty: <span class="light-weight">1</span></p>
+              <p class="light-weight">$199.00</p>
+              <div class="display">
+                <button id="minus-btn">
+                  <span>
+                    <i class="fas fa-minus"></i>
+                  </span>
+                </button>
+                <input type="number" value="1" id="qty-nr" />
+                <button id="plus-btn">
+                  <span>
+                    <i class="fas fa-plus"></i>
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-        <hr>
-        <p class="total-text">Subtotal<span class="totals">$199.00</span></p>
-        <p class="total-text">Shipping<span class="totals">FREE</span></p>
-        <p class="total-text">Grand total<span class="totals">$199.00</span></p>
-      </section>
-      <section class="payment-width">
-        <h2 class="headings" id="margin-top">Delivery Details</h2>
-        <hr>
-        <form class="delivery-form">
-          <input class="name-details" type="text" name="fname" placeholder="First name*" required>
-          <input class="name-details" type="text" name="lname" placeholder="Last name*" required>
-          <input class="address-details" type="text" name="address" placeholder="Address*" required>
-          <input class="address-details" type="text" name="city" placeholder="City*" required>
-          <input class="address-details" type="text" name="postcode" placeholder="Postcode*" required>
-          <input class="address-details" type="text" name="country" placeholder="Country*" required>
-        </form>
-        <h2 class="headings">Contact Details</h2>
-        <hr>
-        <form class="contact">
-          <input class="contact-details" type="email" name="email" placeholder="Email*" required>
-          <input class="contact-details" type="tel" name="phone" placeholder="Phone*" required>
-          <input type="checkbox" name="contactdetails" id="checkbox">
-          <label for="checkbox">
-            Keep me posted on exclusive offers, product drops and Rainy Days updates.<br>
-            <span id="consent">I consent to the processing of my personal data for profile-based marketing purposes, as
-              described in our <span>Privacy Policy</span>.</span>
-          </label>
-        </form>
-      </section>
-    </div>
-    <section class="payment-width">
-      <h2 class="headings">Payment</h2>
-      <hr>
-      <p class="light-weight">All transactions are secure and encrypted.</p>
-      <div class="payment-box">
-        <div class="payment">
-          <input type="radio" id="card" name="card" checked>
-          <label for="card">Credit Card</label>
-          <div class="card-container">
-            <img src="../assets/images/checkout/american-express-straight-128px.png" alt="American Express bank card">
-            <img src="../assets/images/checkout/visa-curved-128px.png" alt="Visa bank card">
-            <img src="../assets/images/checkout/mastercard-straight-128px.png" alt="Mastercard bank card">
-            <img src="../assets/images/checkout/maestro-straight-128px.png" alt="Maestro bank card">
-          </div>
-        </div>
-        <form class="payment-form">
-          <div class="number-wrapper">
-            <input type="number" name="cardnumber" placeholder="Card number" required>
-            <i class="fa-solid fa-lock"></i>
-          </div>
-          <input type="text" name="nameoncard" placeholder="Name on card" required>
-          <div class="exp-security">
-            <input type="text" name="expirydate" placeholder="Expiration date (MM/YY)" />
-            <input type="number" name="securitycode" max="3" placeholder="Security Code" required>
-          </div>
-        </form>
-      </div>
-      <p id="charge"><i class="fa-solid fa-circle-exclamation"></i>Your card will be charged $199.00</p>
-      <div class="btns">
-        <a href="checkout-success.html" class="checkout-btn">Checkout securely<i class="fa-solid fa-lock"></i></a>
-        <a href="../index.html" class="back">
-          <i class="fa-solid fa-chevron-left"></i>
-          <span>go back</span>
-        </a>
-      </div>
-    </section>
-  </main>
-  <!-- Footer -->
-  <footer>
-    <div class="footer-container">
-      <img class="footer-logo" src="../assets/images/logo-footer.png" alt="Rainy Days logo with title heading text" />
-      <div class="reverse-position">
-        <div class="footer-links">
-          <h3>Shop</h3>
-          <a href="products.html">Men</a>
-          <a href="products.html">Women</a>
-        </div>
-        <div class="footer-socials">
-          <h3>Follow us</h3>
-          <a href="https://x.com/" target="_blank">
-            <i class="fa-brands fa-square-twitter"></i>
-          </a>
-          <a href="https://www.facebook.com/" target="_blank">
-            <i class="fa-brands fa-square-facebook"></i>
-          </a>
-          <a href="https://www.instagram.com/" target="_blank">
-            <i class="fa-brands fa-square-instagram"></i>
-          </a>
-          <a href="https://www.youtube.com/" target="_blank">
-            <i class="fa-brands fa-square-youtube"></i>
-          </a>
-        </div>
-        <div class="newsletter">
-          <h3>Newsletter</h3>
-          <p>
-            Sign up to our newsletter to be the first to hear about the latest
-            news, product launches and events!
+          <hr />
+          <p class="total-text">Subtotal<span class="totals">$199.00</span></p>
+          <p class="total-text">Shipping<span class="totals">FREE</span></p>
+          <p class="total-text">
+            Grand total<span class="totals">$199.00</span>
           </p>
-          <form method="GET" class="display-table">
-            <label for="email"></label>
-            <input type="email" name="email" id="email" placeholder="Email Address" required>
-            <button class="submit-btn"><i class="fa-solid fa-chevron-right submit-chevron"></i></button>
+        </section>
+        <section class="payment-width">
+          <h2 class="headings" id="margin-top">Delivery Details</h2>
+          <hr />
+          <form class="delivery-form">
+            <input
+              class="name-details"
+              type="text"
+              name="fname"
+              placeholder="First name*"
+              required
+            />
+            <input
+              class="name-details"
+              type="text"
+              name="lname"
+              placeholder="Last name*"
+              required
+            />
+            <input
+              class="address-details"
+              type="text"
+              name="address"
+              placeholder="Address*"
+              required
+            />
+            <input
+              class="address-details"
+              type="text"
+              name="city"
+              placeholder="City*"
+              required
+            />
+            <input
+              class="address-details"
+              type="text"
+              name="postcode"
+              placeholder="Postcode*"
+              required
+            />
+            <input
+              class="address-details"
+              type="text"
+              name="country"
+              placeholder="Country*"
+              required
+            />
+          </form>
+          <h2 class="headings">Contact Details</h2>
+          <hr />
+          <form class="contact">
+            <input
+              class="contact-details"
+              type="email"
+              name="email"
+              placeholder="Email*"
+              required
+            />
+            <input
+              class="contact-details"
+              type="tel"
+              name="phone"
+              placeholder="Phone*"
+              required
+            />
+            <input type="checkbox" name="contactdetails" id="checkbox" />
+            <label for="checkbox">
+              Keep me posted on exclusive offers, product drops and Rainy Days
+              updates.<br />
+              <span id="consent"
+                >I consent to the processing of my personal data for
+                profile-based marketing purposes, as described in our
+                <span>Privacy Policy</span>.</span
+              >
+            </label>
+          </form>
+        </section>
+      </div>
+      <section class="payment-width">
+        <h2 class="headings">Payment</h2>
+        <hr />
+        <p class="light-weight">All transactions are secure and encrypted.</p>
+        <div class="payment-box">
+          <div class="payment">
+            <input type="radio" id="card" name="card" checked />
+            <label for="card">Credit Card</label>
+            <div class="card-container">
+              <img
+                src="../assets/images/checkout/american-express-straight-128px.png"
+                alt="American Express bank card"
+              />
+              <img
+                src="../assets/images/checkout/visa-curved-128px.png"
+                alt="Visa bank card"
+              />
+              <img
+                src="../assets/images/checkout/mastercard-straight-128px.png"
+                alt="Mastercard bank card"
+              />
+              <img
+                src="../assets/images/checkout/maestro-straight-128px.png"
+                alt="Maestro bank card"
+              />
+            </div>
+          </div>
+          <form class="payment-form">
+            <div class="number-wrapper">
+              <input
+                type="number"
+                name="cardnumber"
+                placeholder="Card number"
+                required
+              />
+              <i class="fa-solid fa-lock"></i>
+            </div>
+            <input
+              type="text"
+              name="nameoncard"
+              placeholder="Name on card"
+              required
+            />
+            <div class="exp-security">
+              <input
+                type="text"
+                name="expirydate"
+                placeholder="Expiration date (MM/YY)"
+              />
+              <input
+                type="number"
+                name="securitycode"
+                max="3"
+                placeholder="Security Code"
+                required
+              />
+            </div>
           </form>
         </div>
+        <p id="charge">
+          <i class="fa-solid fa-circle-exclamation"></i>Your card will be
+          charged $199.00
+        </p>
+        <div class="btns">
+          <a href="checkout-success.html" class="checkout-btn"
+            >Checkout securely<i class="fa-solid fa-lock"></i
+          ></a>
+          <a href="../index.html" class="back">
+            <i class="fa-solid fa-chevron-left"></i>
+            <span>go back</span>
+          </a>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer>
+      <div class="footer-container">
+        <img
+          class="footer-logo"
+          src="../assets/images/logo-footer.png"
+          alt="Rainy Days logo with title heading text"
+        />
+        <div class="reverse-position">
+          <div class="footer-links">
+            <h3>Shop</h3>
+            <a href="products.html">Men</a>
+            <a href="products.html">Women</a>
+          </div>
+          <div class="footer-socials">
+            <h3>Follow us</h3>
+            <a href="https://x.com/" target="_blank">
+              <i class="fa-brands fa-square-twitter"></i>
+            </a>
+            <a href="https://www.facebook.com/" target="_blank">
+              <i class="fa-brands fa-square-facebook"></i>
+            </a>
+            <a href="https://www.instagram.com/" target="_blank">
+              <i class="fa-brands fa-square-instagram"></i>
+            </a>
+            <a href="https://www.youtube.com/" target="_blank">
+              <i class="fa-brands fa-square-youtube"></i>
+            </a>
+          </div>
+          <div class="newsletter">
+            <h3>Newsletter</h3>
+            <p>
+              Sign up to our newsletter to be the first to hear about the latest
+              news, product launches and events!
+            </p>
+            <form method="GET" class="display-table">
+              <label for="email"></label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Email Address"
+                required
+              />
+              <button class="submit-btn">
+                <i class="fa-solid fa-chevron-right submit-chevron"></i>
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
-    </div>
-    <hr id="margin">
-    <div class="copyright">
-      <p class="copyright-text">&copy; Rainy Days 2024. All rights reserved</p>
-      <div class="policy-text">
-        <a href="#">Terms & Conditions</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Cookie Policy</a>
+      <hr id="margin" />
+      <div class="copyright">
+        <p class="copyright-text">
+          &copy; Rainy Days 2024. All rights reserved
+        </p>
+        <div class="policy-text">
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Cookie Policy</a>
+        </div>
       </div>
-    </div>
-  </footer>
-</body>
+    </footer>
+  </body>
 </html>
