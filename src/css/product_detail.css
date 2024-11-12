@@ -39,6 +39,11 @@
   cursor: pointer;
 }
 
+.size-btn.selected {
+  background-color: #000;
+  color: #fff;
+}
+
 .add-btn {
   background-color: #6f6f6f;
   color: #fff;

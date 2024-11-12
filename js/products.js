@@ -1,4 +1,5 @@
 import { fetchProducts } from "./api.js";
+import { showNotification } from "./script.js";
 import { addItemToBag, updateBagCount } from "./bag.js";
 
 async function displayBestsellers() {
@@ -172,14 +173,13 @@ function updateProductDetails(product) {
     "Rainy Days Puddle Jumper Jacket": "lg-image",
     "Rainy Days TrailBlaze Jacket": "lg-image",
   };
-
-  // Apply the classes based on product titles
   const imageClass = imageClassMap[product.title];
-  if (imageClass) {
-    productImage.classList.add(imageClass);
-  }
+  if (imageClass) productImage.classList.add(imageClass);
 
-  // Update available sizes by creating buttons dynamically
+  // Initialize selectedSize variable
+  let selectedSize = null;
+
+  // Update available sizes and create buttons for each size
   const sizeContainer = document.getElementById("size-container");
   sizeContainer.innerHTML = `<p id="size">SIZE:</p>`;
   product.sizes.forEach((size) => {
@@ -188,6 +188,17 @@ function updateProductDetails(product) {
     if (size === "S" || size === "L") button.classList.add("size-padding");
     if (size === "M") button.classList.add("m-padding");
     button.textContent = size;
+
+    // Add event listener to select size
+    button.addEventListener("click", () => {
+      selectedSize = size;
+      // Highlight the selected button and remove selection from others
+      document
+        .querySelectorAll(".size-btn")
+        .forEach((btn) => btn.classList.remove("selected"));
+      button.classList.add("selected");
+    });
+
     sizeContainer.appendChild(button);
   });
 
@@ -202,13 +213,14 @@ function updateProductDetails(product) {
   });
 
   // Add to bag functionality
-  document.getElementById("add-to-bag").addEventListener("click", () => {
+  const addToBagButton = document.getElementById("add-to-bag");
+  addToBagButton.addEventListener("click", () => {
     if (!selectedSize) {
       alert("Please select a size before adding to the bag.");
       return;
     }
     addItemToBag(product.id, selectedSize);
     updateBagCount();
-    alert("Item added to your bag!");
+    showNotification(product.title);
   });
 }

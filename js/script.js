@@ -53,3 +53,22 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+// Function to show the notification
+export function showNotification(productTitle) {
+  const notificationBox = document.getElementById("notification-box");
+  const productNameSpan = document.getElementById("product-name");
+
+  // Update the notification message
+  productNameSpan.textContent = productTitle;
+
+  // Display the notification
+  notificationBox.classList.remove("hidden");
+  notificationBox.classList.add("visible");
+
+  // Hide notification after 4 seconds
+  setTimeout(() => {
+    notificationBox.classList.remove("visible");
+    notificationBox.classList.add("hidden");
+  }, 4000);
+}
