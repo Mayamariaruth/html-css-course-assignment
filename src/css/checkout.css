@@ -289,6 +289,10 @@ input[type="radio"] {
   text-decoration: none;
 }
 
+.input-error {
+  border: 2px solid red;
+}
+
 /* Media queries */
 @media (min-width: 768px) {
   #mobile-item {

@@ -68,3 +68,30 @@ function displayOrderSummary() {
   orderHeadingCount.textContent = `(${totalItemCount})`;
   subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
 }
+
+// Update quantity for a specific item
+function updateQuantity(productId, size, change) {
+  const bagItems = getShoppingBagItems();
+  const itemIndex = bagItems.findIndex(
+    (item) => item.id === productId && item.size === size
+  );
+
+  if (itemIndex !== -1) {
+    // Update quantity
+    bagItems[itemIndex].quantity += change;
+
+    // Remove item if quantity reaches zero
+    if (bagItems[itemIndex].quantity <= 0) {
+      bagItems.splice(itemIndex, 1);
+    }
+
+    // Save updated bag and refresh the display
+    localStorage.setItem("shoppingBag", JSON.stringify(bagItems));
+    displayOrderSummary();
+  }
+}
+
+// Initialize checkout
+document.addEventListener("DOMContentLoaded", () => {
+  displayOrderSummary();
+});
