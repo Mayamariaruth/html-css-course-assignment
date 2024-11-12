@@ -28,8 +28,8 @@ export function updateBagCount() {
     if (mobileBagCount) mobileBagCount.textContent = totalCount;
     if (desktopBagCount) desktopBagCount.textContent = totalCount;
   } else {
-    if (mobileBagCount) mobileBagCount.textContent = ""; // Clear content if 0
-    if (desktopBagCount) desktopBagCount.textContent = ""; // Clear content if 0
+    if (mobileBagCount) mobileBagCount.textContent = "";
+    if (desktopBagCount) desktopBagCount.textContent = "";
   }
 }
 
