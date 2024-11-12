@@ -26,11 +26,10 @@
     <a href="../index.html">
       <img src="../assets/images/logo.png" alt="Rainy Days logo" id="logo" />
     </a>
-    <a id="decoration" href="checkout.html" aria-label="Shopping cart">
-      <i class="fa-solid fa-cart-shopping mobile-cart" id="mobile-margin"></i>
-      <span id="mobile-item">(1)</span>
+    <a id="underline" href="checkout.html" aria-label="Shopping cart">
+      <i class="fa-solid fa-cart-shopping mobile-cart"></i>
+      <span id="bag-count" class="bag-count">0</span>
     </a>
-    </div>
     <nav>
       <a href="../index.html" class="menu">
         <span>Home</span>
@@ -41,7 +40,7 @@
         <i class="fa-solid fa-chevron-right nav-chevron"></i>
       </a>
       <a href="products.html" class="menu">
-        <span>Women</span>
+        <span class="on-page">Women</span>
         <i class="fa-solid fa-chevron-right nav-chevron"></i>
       </a>
       <a href="about.html" class="menu">
@@ -54,9 +53,13 @@
       </a>
       <a href="checkout.html" aria-label="Shopping cart" class="menu">
         <i class="fa-solid fa-cart-shopping" id="desktop-cart"></i>
+        <span id="desktop-bag-count" class="bag-count">0</span>
       </a>
     </nav>
   </header>
+  <div id="notification-box" class="notification hidden">
+    You've added <span id="product-name"></span> to your bag!
+  </div>
   <!-- Main content -->
   <main class="main-container">
     <p class="pages">Home / <span class="active-page">Contact</span></p>

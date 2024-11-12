@@ -23,7 +23,7 @@ export function updateBagCount() {
   const mobileBagCount = document.querySelector("#bag-count");
   const desktopBagCount = document.querySelector("#desktop-bag-count");
 
-  // Update text content or hide if count is 0
+  // Update text content
   if (totalCount > 0) {
     if (mobileBagCount) mobileBagCount.textContent = totalCount;
     if (desktopBagCount) desktopBagCount.textContent = totalCount;

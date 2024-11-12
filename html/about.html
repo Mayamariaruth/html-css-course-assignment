@@ -1,150 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Rainy Days. Discover top-quality rain jackets. Shop our stylish, waterproof, and durable raincoats perfect for any weather. Free shipping and easy returns. Stay dry and fashionable with Rainy Days rain jackets." />
-    <meta name="keywords" content="Rainy Days rain jackets, waterproof rain jackets, all-weather raincoats, rain jackets for men, rain jackets for women, raincoats online, buy rain jackets, best rain jackets, outdoor rain gear, lightweight rain jackets, raincoats for running, rain jackets for hiking" />
+    <meta
+      name="description"
+      content="Rainy Days. Discover top-quality rain jackets. Shop our stylish, waterproof, and durable raincoats perfect for any weather. Free shipping and easy returns. Stay dry and fashionable with Rainy Days rain jackets."
+    />
+    <meta
+      name="keywords"
+      content="Rainy Days rain jackets, waterproof rain jackets, all-weather raincoats, rain jackets for men, rain jackets for women, raincoats online, buy rain jackets, best rain jackets, outdoor rain gear, lightweight rain jackets, raincoats for running, rain jackets for hiking"
+    />
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../assets/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../assets/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../assets/favicon/favicon-16x16.png"
+    />
     <!-- CSS & Font Awesome icons -->
     <link rel="stylesheet" href="../src/css/styles.css" />
-    <script src="https://kit.fontawesome.com/11ca27fbbb.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/11ca27fbbb.js"
+      crossorigin="anonymous"
+    ></script>
     <script defer type="module" src="../js/script.js"></script>
     <title>Rainy Days | About</title>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Header -->
     <header class="border-btm">
-        <input type="checkbox" id="nav-box" />
-        <label for="nav-box">
-            <i class="fa-solid fa-bars mobile-menu"></i>
-            <span class="mobile-menu-text">Menu</span>
-        </label>
-        <a href="../index.html">
-            <img src="../assets/images/logo.png" alt="Rainy Days logo" id="logo" />
+      <input type="checkbox" id="nav-box" />
+      <label for="nav-box">
+        <i class="fa-solid fa-bars mobile-menu"></i>
+        <span class="mobile-menu-text">Menu</span>
+      </label>
+      <a href="../index.html">
+        <img src="../assets/images/logo.png" alt="Rainy Days logo" id="logo" />
+      </a>
+      <a id="underline" href="checkout.html" aria-label="Shopping cart">
+        <i class="fa-solid fa-cart-shopping mobile-cart"></i>
+        <span id="bag-count" class="bag-count">0</span>
+      </a>
+      <nav>
+        <a href="../index.html" class="menu">
+          <span>Home</span>
+          <i class="fa-solid fa-chevron-right nav-chevron"></i>
         </a>
-        <a href="checkout.html" aria-label="Shopping cart">
-            <i class="fa-solid fa-cart-shopping mobile-cart"></i>
+        <a href="products.html" class="menu">
+          <span>Men</span>
+          <i class="fa-solid fa-chevron-right nav-chevron"></i>
         </a>
-        </div>
-        <nav>
-            <a href="../index.html" class="menu">
-                <span>Home</span>
-                <i class="fa-solid fa-chevron-right nav-chevron"></i>
-            </a>
-            <a href="products.html" class="menu">
-                <span>Men</span>
-                <i class="fa-solid fa-chevron-right nav-chevron"></i>
-            </a>
-            <a href="products.html" class="menu">
-                <span>Women</span>
-                <i class="fa-solid fa-chevron-right nav-chevron"></i>
-            </a>
-            <a href="about.html" class="menu">
-                <span class="on-page">About</span>
-                <i class="fa-solid fa-chevron-right nav-chevron"></i>
-            </a>
-            <a href="contact.html" class="menu">
-                <span>Contact</span>
-                <i class="fa-solid fa-chevron-right nav-chevron"></i>
-            </a>
-            <a href="checkout.html" aria-label="Shopping cart" class="menu">
-                <i class="fa-solid fa-cart-shopping" id="desktop-cart"></i>
-            </a>
-        </nav>
+        <a href="products.html" class="menu">
+          <span class="on-page">Women</span>
+          <i class="fa-solid fa-chevron-right nav-chevron"></i>
+        </a>
+        <a href="about.html" class="menu">
+          <span>About</span>
+          <i class="fa-solid fa-chevron-right nav-chevron"></i>
+        </a>
+        <a href="contact.html" class="menu">
+          <span>Contact</span>
+          <i class="fa-solid fa-chevron-right nav-chevron"></i>
+        </a>
+        <a href="checkout.html" aria-label="Shopping cart" class="menu">
+          <i class="fa-solid fa-cart-shopping" id="desktop-cart"></i>
+          <span id="desktop-bag-count" class="bag-count">0</span>
+        </a>
+      </nav>
     </header>
+    <div id="notification-box" class="notification hidden">
+      You've added <span id="product-name"></span> to your bag!
+    </div>
     <!-- Main content -->
     <main class="main-container">
-        <p class="pages">Home / <span class="active-page">About</span></p>
-        <section class="about-container">
-            <div>
-                <h2 class="brand-text">Rainy Days</h2>
-                <h1>Who We are</h1>
-                <div class="text-content">
-                    <p>Rainy Days is a brand that was born out of a love for adventure and functionality. We are a team
-                        of dedicated individuals who are committed to creating functional and high-quality rain jackets
-                        for those rainy days when you need to stay dry.</p>
-                    <p>At Rainy Days, we value innovation, quality, and customer satisfaction above all else. We are
-                        constantly pushing boundaries and exploring new techniques and materials to create rain jackets
-                        that are not only functional but also eco-friendly and sustainable.</p>
-                </div>
-            </div>
-            <div class="images">
-                <img class="about-img" src="../assets/images/about/about.jpg" alt="A woman sitting on a cliff">
-            </div>
-        </section>
-        <section class="mission-container">
-            <div class="text-box">
-                <h2 class="brand-text">Rainy Days</h2>
-                <h1>Our Mission</h1>
-                <div class="text-content">
-                    <p>At Rainy Days, we are passionate about keeping you dry and stylish on even the dreariest of days.
-                        Our mission is to provide high-quality, functional rain jackets that not only protect you from
-                        the elements but also make a fashion statement.</p>
-                    <p>Our team is dedicated to delivering top-notch customer service and ensuring that you feel
-                        confident and comfortable in our products. We are constantly seeking feedback and improving our
-                        designs to meet the needs of our customers.</p>
-                    <p>So, next time the forecast calls for rain, don't let it ruin your day. Embrace it with a
-                        fashionable rain jacket from Rainy Days. Stay dry, stay stylish.</p>
-                </div>
-            </div>
-            <div class="images">
-                <img class="about-img" src="../assets/images/about/mission.jpg" alt="A man walking in the forest">
-            </div>
-        </section>
+      <p class="pages">Home / <span class="active-page">About</span></p>
+      <section class="about-container">
+        <div>
+          <h2 class="brand-text">Rainy Days</h2>
+          <h1>Who We are</h1>
+          <div class="text-content">
+            <p>
+              Rainy Days is a brand that was born out of a love for adventure
+              and functionality. We are a team of dedicated individuals who are
+              committed to creating functional and high-quality rain jackets for
+              those rainy days when you need to stay dry.
+            </p>
+            <p>
+              At Rainy Days, we value innovation, quality, and customer
+              satisfaction above all else. We are constantly pushing boundaries
+              and exploring new techniques and materials to create rain jackets
+              that are not only functional but also eco-friendly and
+              sustainable.
+            </p>
+          </div>
+        </div>
+        <div class="images">
+          <img
+            class="about-img"
+            src="../assets/images/about/about.jpg"
+            alt="A woman sitting on a cliff"
+          />
+        </div>
+      </section>
+      <section class="mission-container">
+        <div class="text-box">
+          <h2 class="brand-text">Rainy Days</h2>
+          <h1>Our Mission</h1>
+          <div class="text-content">
+            <p>
+              At Rainy Days, we are passionate about keeping you dry and stylish
+              on even the dreariest of days. Our mission is to provide
+              high-quality, functional rain jackets that not only protect you
+              from the elements but also make a fashion statement.
+            </p>
+            <p>
+              Our team is dedicated to delivering top-notch customer service and
+              ensuring that you feel confident and comfortable in our products.
+              We are constantly seeking feedback and improving our designs to
+              meet the needs of our customers.
+            </p>
+            <p>
+              So, next time the forecast calls for rain, don't let it ruin your
+              day. Embrace it with a fashionable rain jacket from Rainy Days.
+              Stay dry, stay stylish.
+            </p>
+          </div>
+        </div>
+        <div class="images">
+          <img
+            class="about-img"
+            src="../assets/images/about/mission.jpg"
+            alt="A man walking in the forest"
+          />
+        </div>
+      </section>
     </main>
     <!-- Footer -->
     <footer>
-        <div class="footer-container">
-            <img class="footer-logo" src="../assets/images/logo-footer.png"
-                alt="Rainy Days logo with title heading text" />
-            <div class="reverse-position">
-                <div class="footer-links">
-                    <h3>Shop</h3>
-                    <a href="products.html">Men</a>
-                    <a href="products.html">Women</a>
-                </div>
-                <div class="footer-socials">
-                    <h3>Follow us</h3>
-                    <a href="https://x.com/" target="_blank">
-                        <i class="fa-brands fa-square-twitter"></i>
-                    </a>
-                    <a href="https://www.facebook.com/" target="_blank">
-                        <i class="fa-brands fa-square-facebook"></i>
-                    </a>
-                    <a href="https://www.instagram.com/" target="_blank">
-                        <i class="fa-brands fa-square-instagram"></i>
-                    </a>
-                    <a href="https://www.youtube.com/" target="_blank">
-                        <i class="fa-brands fa-square-youtube"></i>
-                    </a>
-                </div>
-                <div class="newsletter">
-                    <h3>Newsletter</h3>
-                    <p>
-                        Sign up to our newsletter to be the first to hear about the latest
-                        news, product launches and events!
-                    </p>
-                    <form method="GET" class="display-table">
-                        <label for="email"></label>
-                        <input type="email" name="email" id="email" placeholder="Email Address" required>
-                        <button class="submit-btn"><i class="fa-solid fa-chevron-right submit-chevron"></i></button>
-                    </form>
-                </div>
-            </div>
+      <div class="footer-container">
+        <img
+          class="footer-logo"
+          src="../assets/images/logo-footer.png"
+          alt="Rainy Days logo with title heading text"
+        />
+        <div class="reverse-position">
+          <div class="footer-links">
+            <h3>Shop</h3>
+            <a href="products.html">Men</a>
+            <a href="products.html">Women</a>
+          </div>
+          <div class="footer-socials">
+            <h3>Follow us</h3>
+            <a href="https://x.com/" target="_blank">
+              <i class="fa-brands fa-square-twitter"></i>
+            </a>
+            <a href="https://www.facebook.com/" target="_blank">
+              <i class="fa-brands fa-square-facebook"></i>
+            </a>
+            <a href="https://www.instagram.com/" target="_blank">
+              <i class="fa-brands fa-square-instagram"></i>
+            </a>
+            <a href="https://www.youtube.com/" target="_blank">
+              <i class="fa-brands fa-square-youtube"></i>
+            </a>
+          </div>
+          <div class="newsletter">
+            <h3>Newsletter</h3>
+            <p>
+              Sign up to our newsletter to be the first to hear about the latest
+              news, product launches and events!
+            </p>
+            <form method="GET" class="display-table">
+              <label for="email"></label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Email Address"
+                required
+              />
+              <button class="submit-btn">
+                <i class="fa-solid fa-chevron-right submit-chevron"></i>
+              </button>
+            </form>
+          </div>
         </div>
-        <hr id="margin">
-        <div class="copyright">
-            <p class="copyright-text">&copy; Rainy Days 2024. All rights reserved</p>
-            <div class="policy-text">
-                <a href="#">Terms & Conditions</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Cookie Policy</a>
-            </div>
+      </div>
+      <hr id="margin" />
+      <div class="copyright">
+        <p class="copyright-text">
+          &copy; Rainy Days 2024. All rights reserved
+        </p>
+        <div class="policy-text">
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Cookie Policy</a>
         </div>
+      </div>
     </footer>
-</body>
+  </body>
 </html>
