@@ -19,10 +19,16 @@ export function updateBagCount() {
   const bag = JSON.parse(localStorage.getItem("shoppingBag")) || [];
   const totalCount = bag.reduce((acc, item) => acc + item.quantity, 0);
 
-  // Update both mobile and desktop bag count elements
+  // Select the mobile and desktop bag count elements
   const mobileBagCount = document.querySelector("#bag-count");
   const desktopBagCount = document.querySelector("#desktop-bag-count");
 
-  if (mobileBagCount) mobileBagCount.textContent = totalCount;
-  if (desktopBagCount) desktopBagCount.textContent = totalCount;
+  // Update text content or hide if count is 0
+  if (totalCount > 0) {
+    if (mobileBagCount) mobileBagCount.textContent = totalCount;
+    if (desktopBagCount) desktopBagCount.textContent = totalCount;
+  } else {
+    if (mobileBagCount) mobileBagCount.textContent = ""; // Clear content if 0
+    if (desktopBagCount) desktopBagCount.textContent = ""; // Clear content if 0
+  }
 }

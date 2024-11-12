@@ -129,6 +129,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   } catch (error) {
     console.error("Error fetching product details:", error);
   }
+  // Update bag count on page load
+  updateBagCount();
 });
 
 // Function to fetch product data by ID
@@ -197,5 +199,16 @@ function updateProductDetails(product) {
     p.className = "details";
     p.textContent = paragraph;
     descriptionContainer.appendChild(p);
+  });
+
+  // Add to bag functionality
+  document.getElementById("add-to-bag").addEventListener("click", () => {
+    if (!selectedSize) {
+      alert("Please select a size before adding to the bag.");
+      return;
+    }
+    addItemToBag(product.id, selectedSize);
+    updateBagCount();
+    alert("Item added to your bag!");
   });
 }
