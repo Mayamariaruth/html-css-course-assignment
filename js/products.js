@@ -213,13 +213,20 @@ function updateProductDetails(product) {
   });
 
   // Add to bag functionality
-  const addToBagButton = document.getElementById("add-to-bag");
-  addToBagButton.addEventListener("click", () => {
+  document.getElementById("add-to-bag").addEventListener("click", () => {
     if (!selectedSize) {
       alert("Please select a size before adding to the bag.");
       return;
     }
-    addItemToBag(product.id, selectedSize);
+    const productToAdd = {
+      id: product.id,
+      title: product.title,
+      image: product.image,
+      size: selectedSize,
+      quantity: 1,
+      price: product.price,
+    };
+    addItemToBag(productToAdd);
     updateBagCount();
     showNotification(product.title);
   });
