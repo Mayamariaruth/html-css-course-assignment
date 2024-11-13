@@ -90,6 +90,12 @@
   font-size: 1.1rem;
 }
 
+.minus-btn:hover,
+.plus-btn:hover {
+  background-color: #8b8b8d;
+  color: #fff;
+}
+
 .qty-nr {
   width: 125px;
   padding: 3px 0 3px 3px;

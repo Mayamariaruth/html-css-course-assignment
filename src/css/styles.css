@@ -42,6 +42,20 @@ body {
   max-width: 2000px;
 }
 
+.main-container {
+  padding: 1rem;
+}
+
+.pages {
+  font-size: 11px;
+  color: #727273;
+  font-weight: 300;
+}
+
+.active-page {
+  text-decoration: underline;
+}
+
 /* Notification Box Styling */
 .notification {
   position: absolute;

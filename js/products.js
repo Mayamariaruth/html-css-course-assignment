@@ -50,8 +50,19 @@ async function displayFilteredProducts() {
   }
 
   try {
-    // Retrieve the selected gender from localStorage or default to "Men"
+    // Retrieve selected gender from localStorage or default to "Men"
     const selectedGender = localStorage.getItem("selectedGender") || "Men";
+
+    // Update active page and heading to reflect the selected gender
+    const activePageElement = document.querySelector(".active-page");
+    if (activePageElement) {
+      activePageElement.textContent = selectedGender;
+    }
+
+    const headingElement = document.querySelector(".gender-heading");
+    if (headingElement) {
+      headingElement.textContent = selectedGender;
+    }
 
     // Register "Men"/"Women" to "Male"/"Female" for API filtering
     const apiGender = selectedGender === "Men" ? "Male" : "Female";

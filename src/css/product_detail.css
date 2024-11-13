@@ -60,8 +60,8 @@
 
 .add-btn:hover,
 .message-btn:hover,
-#minus-btn:hover,
-#plus-btn:hover,
+.minus-btn:hover,
+.plus-btn:hover,
 .shop-btn:hover {
   background-color: #000;
   cursor: pointer;
