@@ -3,9 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const contactForm = document.getElementById("contact-form");
 
   contactForm.addEventListener("submit", (event) => {
-    event.preventDefault(); // Prevent form submission
+    event.preventDefault();
 
-    // Clear any previous error messages
     clearErrorMessages();
 
     // Collect form values
@@ -29,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (order && order.length !== 7) {
-      showError("orderError", "Order number must be exactly 7 digits.");
+      showError("orderError", "Order number must be 7 digits.");
       isValid = false;
     }
 

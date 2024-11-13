@@ -136,23 +136,62 @@ document.querySelector(".checkout-btn").addEventListener("click", (event) => {
     localStorage.removeItem("shoppingBag");
     window.location.href = "checkout-success.html";
   } else {
-    alert("Please fill out all required fields.");
+    alert("Please fill out all required fields. \n" + errors.join("\n"));
   }
 });
+
+// Array to collect all error messages
+let errors = [];
 
 // Form validation function
 function validateForm() {
   const requiredFields = document.querySelectorAll("input[required]");
   let isValid = true;
+  errors = [];
 
   requiredFields.forEach((field) => {
+    // Check if the field is empty
     if (!field.value.trim()) {
       field.classList.add("input-error");
       isValid = false;
     } else {
-      field.classList.remove("input-error");
+      // Validation on non-empty fields
+      if (field.name === "email" && !validateEmail(field.value)) {
+        field.classList.add("input-error");
+        isValid = false;
+        errors.push("Please enter a valid email address.");
+      } else if (field.name === "phone" && !validatePhoneNumber(field.value)) {
+        field.classList.add("input-error");
+        isValid = false;
+        errors.push("Please enter a valid phone number.");
+      } else if (field.name === "postcode" && !validatePostcode(field.value)) {
+        field.classList.add("input-error");
+        isValid = false;
+        errors.push("Please enter a valid postcode.");
+      } else {
+        field.classList.remove("input-error");
+      }
     }
   });
 
   return isValid;
+}
+
+// Email validation
+function validateEmail(email) {
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailPattern.test(email);
+}
+
+// Phone number validation
+function validatePhoneNumber(phone) {
+  const phonePattern =
+    /^(?:\+?\d{1,3})?[-.\s]?(?:\(?\d{1,4}\)?[-.\s]?)?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,4}$/;
+  return phonePattern.test(phone);
+}
+
+// Postcode validation
+function validatePostcode(postcode) {
+  const postcodePattern = /^[A-Za-z0-9\s\-\/]{3,10}$/;
+  return postcodePattern.test(postcode);
 }

@@ -302,6 +302,11 @@ input[type="radio"] {
 
 .input-error {
   border: 2px solid red;
+  background-color: #f8d7da;
+}
+
+.input-error:focus {
+  outline-color: red;
 }
 
 .free-shipping-message {
