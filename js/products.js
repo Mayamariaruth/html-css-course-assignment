@@ -150,15 +150,14 @@ function updateProductDetails(product) {
   ).innerHTML = `Home / Products / <span class="active-page">${product.title}</span>`;
   document.getElementById("details-heading").textContent = product.title;
 
-  // Update price and stock status
+  // Update price
   const priceElement = document.getElementById("price");
-  priceElement.innerHTML = `$${product.price.toFixed(2)} <span id="in-stock">${
-    product.inStock ? "In stock" : "Out of stock"
-  }</span>`;
+  priceElement.innerHTML = `$${product.price.toFixed(2)}`;
 
   // Update product image
   const productImage = document.getElementById("product-image");
-  productImage.src = product.image;
+  productImage.src =
+    product.image || "../assets/images/products/product-bg.png";
   productImage.alt = `Product image of ${product.title}`;
 
   // Add styling classes to images
