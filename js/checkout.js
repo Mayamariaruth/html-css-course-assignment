@@ -125,3 +125,34 @@ function updateQuantity(productId, size, change) {
 document.addEventListener("DOMContentLoaded", () => {
   displayOrderSummary();
 });
+
+// Validate checkout forms
+document.querySelector(".checkout-btn").addEventListener("click", (event) => {
+  event.preventDefault();
+
+  const formValid = validateForm();
+
+  if (formValid) {
+    localStorage.removeItem("shoppingBag");
+    window.location.href = "checkout-success.html";
+  } else {
+    alert("Please fill out all required fields.");
+  }
+});
+
+// Form validation function
+function validateForm() {
+  const requiredFields = document.querySelectorAll("input[required]");
+  let isValid = true;
+
+  requiredFields.forEach((field) => {
+    if (!field.value.trim()) {
+      field.classList.add("input-error");
+      isValid = false;
+    } else {
+      field.classList.remove("input-error");
+    }
+  });
+
+  return isValid;
+}

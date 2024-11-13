@@ -121,7 +121,7 @@
 }
 
 .delivery-form,
-.contact {
+.contact-form {
   display: flex;
   flex-wrap: wrap;
   gap: 13px;
@@ -158,7 +158,7 @@ input[type="checkbox"]:checked {
   accent-color: #000;
 }
 
-.contact label {
+.contact-form label {
   font-size: 13px;
   width: 90%;
   font-weight: 500;
