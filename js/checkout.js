@@ -136,13 +136,17 @@ document.querySelector(".checkout-btn").addEventListener("click", (event) => {
   event.preventDefault();
 
   errors = [];
-  const formValid = validateForm() && validatePaymentForm();
 
-  if (formValid) {
+  const formIsValid = validateForm();
+  const paymentIsValid = validatePaymentForm();
+
+  const formValid = formIsValid && paymentIsValid;
+
+  if (!formValid) {
+    alert("Please fill out all required fields. \n" + errors.join("\n"));
+  } else {
     localStorage.removeItem("shoppingBag");
     window.location.href = "checkout-success.html";
-  } else {
-    alert("Please fill out all required fields. \n" + errors.join("\n"));
   }
 });
 
@@ -152,18 +156,20 @@ function validateForm() {
     "#delivery-form input[required], #contact-form input[required], .payment-form input[required]"
   );
   let isValid = true;
-  errors = [];
 
   checkoutForms.forEach((field) => {
+    // Remove error CSS class when the user starts typing
     field.addEventListener("input", () => {
       field.classList.remove("input-error");
     });
+
     // Check if the field is empty
     if (!field.value.trim()) {
       field.classList.add("input-error");
       isValid = false;
+      errors.push(`Please fill out the ${field.name} field.`);
     } else {
-      // Validation on non-empty fields
+      // Validate specific fields
       if (field.name === "email" && !validateEmail(field.value)) {
         field.classList.add("input-error");
         isValid = false;
@@ -204,39 +210,62 @@ function validatePostcode(postcode) {
   return postcodePattern.test(postcode);
 }
 
-// Update the payment charge text amount
-function updateChargeAmount(grandTotal) {
-  const chargeElement = document.getElementById("charge");
-  chargeElement.innerHTML = `<i class="fa-solid fa-circle-exclamation"></i>Your card will be charged $${grandTotal.toFixed(
-    2
-  )}`;
-}
-
-// Payment form validation
+// Payment form validation function
 function validatePaymentForm() {
-  const cardNumber = document.getElementById("cardnumber").value.trim();
-  const nameOnCard = document.getElementById("nameoncard").value.trim();
-  const expiryDate = document.getElementById("expirydate").value.trim();
-  const securityCode = document.getElementById("securitycode").value.trim();
+  const cardNumber = document.getElementById("cardnumber");
+  const nameOnCard = document.getElementById("nameoncard");
+  const expiryDate = document.getElementById("expirydate");
+  const securityCode = document.getElementById("securitycode");
 
   let isValid = true;
 
-  if (!/^\d{13,19}$/.test(cardNumber)) {
+  // Card number validation
+  if (!/^\d{13,19}$/.test(cardNumber.value.trim())) {
     isValid = false;
+    cardNumber.classList.add("input-error");
     errors.push("Please enter a valid card number (13-19 digits).");
+  } else {
+    cardNumber.classList.remove("input-error");
   }
-  if (!/^[A-Za-z\s]+$/.test(nameOnCard)) {
+
+  // Name on card validation
+  if (!/^[A-Za-z\s]+$/.test(nameOnCard.value.trim())) {
     isValid = false;
+    nameOnCard.classList.add("input-error");
     errors.push("Please enter a valid name on the card.");
+  } else {
+    nameOnCard.classList.remove("input-error");
   }
-  if (!/^(0[1-9]|1[0-2])\/\d{2}$/.test(expiryDate)) {
+
+  // Expiry date validation (MM/YY)
+  if (!/^(0[1-9]|1[0-2])\/\d{2}$/.test(expiryDate.value.trim())) {
     isValid = false;
+    expiryDate.classList.add("input-error");
     errors.push("Please enter a valid expiration date in MM/YY format.");
+  } else {
+    expiryDate.classList.remove("input-error");
   }
-  if (!/^\d{3}$/.test(securityCode)) {
+
+  // Security code validation (3 digits)
+  if (!/^\d{3}$/.test(securityCode.value.trim())) {
     isValid = false;
+    securityCode.classList.add("input-error");
     errors.push("Please enter a valid 3-digit security code.");
+  } else {
+    securityCode.classList.remove("input-error");
   }
+
+  // Remove error CSS class when the user starts typing
+  [cardNumber, nameOnCard, expiryDate, securityCode].forEach((field) => {
+    field.addEventListener("input", () => {
+      field.classList.remove("input-error");
+    });
+  });
 
   return isValid;
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  validateForm();
+  validatePaymentForm();
+});
