@@ -97,6 +97,8 @@ function displayOrderSummary() {
   shippingAmountElement.textContent =
     shippingCost === 0 ? "FREE" : `$${shippingCost.toFixed(2)}`;
   grandTotalElement.textContent = `$${grandTotal.toFixed(2)}`;
+
+  updateChargeAmount(grandTotal);
 }
 
 // Update quantity for a specific item
@@ -195,3 +197,24 @@ function validatePostcode(postcode) {
   const postcodePattern = /^[A-Za-z0-9\s\-\/]{3,10}$/;
   return postcodePattern.test(postcode);
 }
+
+// Update the payment charge text amount
+function updateChargeAmount(grandTotal) {
+  const chargeElement = document.getElementById("charge");
+  chargeElement.innerHTML = `<i class="fa-solid fa-circle-exclamation"></i>Your card will be charged $${grandTotal.toFixed(
+    2
+  )}`;
+}
+
+// Validate payment details
+document.querySelector(".checkout-btn").addEventListener("click", (event) => {
+  event.preventDefault();
+
+  const formValid = validatePaymentForm();
+
+  if (formValid) {
+    window.location.href = "checkout-success.html";
+  } else {
+    alert("Please fill out the payment details correctly.");
+  }
+});
