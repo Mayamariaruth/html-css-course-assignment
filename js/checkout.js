@@ -128,11 +128,15 @@ document.addEventListener("DOMContentLoaded", () => {
   displayOrderSummary();
 });
 
+// Array to collect all error messages
+let errors = [];
+
 // Validate checkout forms
 document.querySelector(".checkout-btn").addEventListener("click", (event) => {
   event.preventDefault();
 
-  const formValid = validateForm();
+  errors = [];
+  const formValid = validateForm() && validatePaymentForm();
 
   if (formValid) {
     localStorage.removeItem("shoppingBag");
@@ -142,16 +146,17 @@ document.querySelector(".checkout-btn").addEventListener("click", (event) => {
   }
 });
 
-// Array to collect all error messages
-let errors = [];
-
 // Form validation function
 function validateForm() {
-  const requiredFields = document.querySelectorAll("input[required]");
+  const checkoutForms = document.querySelectorAll(
+    "#delivery-form input[required], #contact-form input[required], .payment-form input[required]"
+  );
   let isValid = true;
-  errors = [];
 
-  requiredFields.forEach((field) => {
+  checkoutForms.forEach((field) => {
+    field.addEventListener("input", () => {
+      field.classList.remove("input-error");
+    });
     // Check if the field is empty
     if (!field.value.trim()) {
       field.classList.add("input-error");
@@ -206,15 +211,14 @@ function updateChargeAmount(grandTotal) {
   )}`;
 }
 
-// Validate payment details
-document.querySelector(".checkout-btn").addEventListener("click", (event) => {
-  event.preventDefault();
+// Payment form validation
+function validatePaymentForm() {
+  const cardNumber = document.getElementById("cardnumber").value.trim();
+  const nameOnCard = document.getElementById("nameoncard").value.trim();
+  const expiryDate = document.getElementById("expirydate").value.trim();
+  const securityCode = document.getElementById("securitycode").value.trim();
 
-  const formValid = validatePaymentForm();
+  let isValid = true;
 
-  if (formValid) {
-    window.location.href = "checkout-success.html";
-  } else {
-    alert("Please fill out the payment details correctly.");
-  }
-});
+  return isValid;
+}
