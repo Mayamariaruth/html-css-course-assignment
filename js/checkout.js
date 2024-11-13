@@ -14,10 +14,13 @@ function displayOrderSummary() {
   const subtotalElement = document.querySelector(".subtotal");
   const grandTotalElement = document.querySelector(".grandtotal");
   const shippingAmountElement = document.querySelector(".shipping");
+  const freeShippingMessageElement = document.getElementById(
+    "free-shipping-message"
+  );
 
   let subtotal = 0;
   let totalItemCount = 0;
-  let shippingCost = 0;
+  let shippingCost = 10;
 
   orderContainer.innerHTML = "";
   bagItems.forEach((item) => {
@@ -27,18 +30,12 @@ function displayOrderSummary() {
     // Dynamic HTML
     const productHTML = `
       <div class="order-img">
-        <img
-          class="background"
-          src="../assets/images/products/product-bg.png"
-          alt="Grey product background"
-        />
-        <img
-          class="product-image"
-          src="${item.image}" 
-          alt="Product image of ${item.title}"
-        />
+        <img class="background" src="../assets/images/products/product-bg.png" alt="Grey product background" />
+        <img class="product-image" src="${item.image}" alt="Product image of ${
+      item.title
+    }" />
       </div>
-      <div class="product-info">
+      <div class="product-info" data-id="${item.id}" data-size="${item.size}">
         <p id="product-heading">${item.title}</p>
         <p class="info">Size: <span class="light-weight">${item.size}</span></p>
         <p class="info">Qty: <span class="light-weight">${
@@ -46,19 +43,11 @@ function displayOrderSummary() {
         }</span></p>
         <p class="light-weight">$${item.price.toFixed(2)}</p>
         <div class="display">
-          <button class="minus-btn" onclick="updateQuantity('${item.id}', '${
-      item.size
-    }', -1)">
-            <span><i class="fas fa-minus"></i></span>
-          </button>
+          <button class="minus-btn">-</button>
           <input type="number" value="${
             item.quantity
           }" class="qty-nr" readonly />
-          <button class="plus-btn" onclick="updateQuantity('${item.id}', '${
-      item.size
-    }', 1)">
-            <span><i class="fas fa-plus"></i></span>
-          </button>
+          <button class="plus-btn">+</button>
         </div>
       </div>
       <hr />
@@ -68,11 +57,32 @@ function displayOrderSummary() {
     orderContainer.innerHTML += productHTML;
   });
 
-  // Determine shipping cost
-  if (subtotal >= 100) {
+  // Remove/add item quantity
+  orderContainer.querySelectorAll(".minus-btn").forEach((button) => {
+    button.addEventListener("click", function () {
+      const productInfo = this.closest(".product-info");
+      const productId = productInfo.getAttribute("data-id");
+      const size = productInfo.getAttribute("data-size");
+      updateQuantity(productId, size, -1);
+    });
+  });
+
+  orderContainer.querySelectorAll(".plus-btn").forEach((button) => {
+    button.addEventListener("click", function () {
+      const productInfo = this.closest(".product-info");
+      const productId = productInfo.getAttribute("data-id");
+      const size = productInfo.getAttribute("data-size");
+      updateQuantity(productId, size, 1);
+    });
+  });
+
+  // Shipping cost
+  if (subtotal >= 250) {
     shippingCost = 0;
+    freeShippingMessageElement.textContent = "";
   } else {
-    shippingCost = 10;
+    const amountNeeded = (250 - subtotal).toFixed(2);
+    freeShippingMessageElement.textContent = `Spend $${amountNeeded} more to get free shipping!`;
   }
 
   const grandTotal = subtotal + shippingCost;
