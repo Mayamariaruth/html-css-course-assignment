@@ -6,6 +6,7 @@ function getShoppingBagItems() {
 // Display shopping bag items in the checkout
 function displayOrderSummary() {
   const bagItems = getShoppingBagItems();
+  console.log("Bag Items:", bagItems);
   const orderContainer = document.querySelector(".order-container");
   const orderHeadingCount = document.querySelector(
     ".order-heading .light-weight"

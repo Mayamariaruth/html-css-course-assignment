@@ -1,14 +1,23 @@
-// Add item to the shopping bag in localStorage
-export function addItemToBag(productId, size) {
+// Add items to the shopping bag in localStorage
+export function addItemToBag(product) {
   const bag = JSON.parse(localStorage.getItem("shoppingBag")) || [];
   const existingItemIndex = bag.findIndex(
-    (item) => item.id === productId && item.size === size
+    (item) => item.id === product.id && item.size === product.size
   );
 
   if (existingItemIndex > -1) {
-    bag[existingItemIndex].quantity += 1;
+    // Update quantity if the product and size already exist in the bag
+    bag[existingItemIndex].quantity += product.quantity;
   } else {
-    bag.push({ id: productId, size: size, quantity: 1 });
+    // Add all product details to the shopping bag
+    bag.push({
+      id: product.id,
+      title: product.title,
+      image: product.image,
+      size: product.size,
+      quantity: product.quantity,
+      price: product.price,
+    });
   }
 
   localStorage.setItem("shoppingBag", JSON.stringify(bag));
