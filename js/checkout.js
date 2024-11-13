@@ -125,30 +125,36 @@ function updateQuantity(productId, size, change) {
 
 // Initialize checkout
 document.addEventListener("DOMContentLoaded", () => {
-  displayOrderSummary();
+  const orderSummaryElement = document.getElementById("order-summary");
+  if (orderSummaryElement) {
+    displayOrderSummary();
+  }
 });
 
 // Array to collect all error messages
 let errors = [];
 
 // Validate checkout forms
-document.querySelector(".checkout-btn").addEventListener("click", (event) => {
-  event.preventDefault();
+const checkoutBtn = document.querySelector(".checkout-btn");
+if (checkoutBtn) {
+  document.querySelector(".checkout-btn").addEventListener("click", (event) => {
+    event.preventDefault();
 
-  errors = [];
+    errors = [];
 
-  const formIsValid = validateForm();
-  const paymentIsValid = validatePaymentForm();
+    const formIsValid = validateForm();
+    const paymentIsValid = validatePaymentForm();
 
-  const formValid = formIsValid && paymentIsValid;
+    const formValid = formIsValid && paymentIsValid;
 
-  if (!formValid) {
-    alert("Please fill out all required fields. \n" + errors.join("\n"));
-  } else {
-    localStorage.removeItem("shoppingBag");
-    window.location.href = "checkout-success.html";
-  }
-});
+    if (!formValid) {
+      alert("Please fill out all required fields. \n" + errors.join("\n"));
+    } else {
+      localStorage.removeItem("shoppingBag");
+      window.location.href = "checkout-success.html";
+    }
+  });
+}
 
 // Form validation function
 function validateForm() {
@@ -216,6 +222,11 @@ function validatePaymentForm() {
   const nameOnCard = document.getElementById("nameoncard");
   const expiryDate = document.getElementById("expirydate");
   const securityCode = document.getElementById("securitycode");
+
+  // Check if the payment form elements exist before validating
+  if (!cardNumber || !nameOnCard || !expiryDate || !securityCode) {
+    return true;
+  }
 
   let isValid = true;
 
