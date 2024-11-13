@@ -152,6 +152,7 @@ function validateForm() {
     "#delivery-form input[required], #contact-form input[required], .payment-form input[required]"
   );
   let isValid = true;
+  errors = [];
 
   checkoutForms.forEach((field) => {
     field.addEventListener("input", () => {
@@ -219,6 +220,23 @@ function validatePaymentForm() {
   const securityCode = document.getElementById("securitycode").value.trim();
 
   let isValid = true;
+
+  if (!/^\d{13,19}$/.test(cardNumber)) {
+    isValid = false;
+    errors.push("Please enter a valid card number (13-19 digits).");
+  }
+  if (!/^[A-Za-z\s]+$/.test(nameOnCard)) {
+    isValid = false;
+    errors.push("Please enter a valid name on the card.");
+  }
+  if (!/^(0[1-9]|1[0-2])\/\d{2}$/.test(expiryDate)) {
+    isValid = false;
+    errors.push("Please enter a valid expiration date in MM/YY format.");
+  }
+  if (!/^\d{3}$/.test(securityCode)) {
+    isValid = false;
+    errors.push("Please enter a valid 3-digit security code.");
+  }
 
   return isValid;
 }
