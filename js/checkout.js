@@ -6,7 +6,6 @@ function getShoppingBagItems() {
 // Display shopping bag items in the checkout
 function displayOrderSummary() {
   const bagItems = getShoppingBagItems();
-  console.log("Bag Items:", bagItems);
   const orderContainer = document.querySelector(".order-container");
   const orderHeadingCount = document.querySelector(
     ".order-heading .light-weight"
@@ -29,28 +28,31 @@ function displayOrderSummary() {
 
     // Dynamic HTML
     const productHTML = `
-      <div class="order-img">
-        <img class="background" src="../assets/images/products/product-bg.png" alt="Grey product background" />
-        <img class="product-image" src="${item.image}" alt="Product image of ${
-      item.title
-    }" />
-      </div>
-      <div class="product-info" data-id="${item.id}" data-size="${item.size}">
-        <p id="product-heading">${item.title}</p>
-        <p class="info">Size: <span class="light-weight">${item.size}</span></p>
-        <p class="info">Qty: <span class="light-weight">${
-          item.quantity
-        }</span></p>
-        <p class="light-weight">$${item.price.toFixed(2)}</p>
-        <div class="display">
-          <button class="minus-btn">-</button>
-          <input type="number" value="${
-            item.quantity
-          }" class="qty-nr" readonly />
-          <button class="plus-btn">+</button>
+      <div class="item-container">
+        <div class="order-img">
+            <img class="background" src="../assets/images/products/product-bg.png" alt="Grey product background" />
+            <img class="product-image" src="${
+              item.image
+            }" alt="Product image of ${item.title}" />
+        </div>
+        <div class="product-info" data-id="${item.id}" data-size="${item.size}">
+            <p id="product-heading">${item.title}</p>
+            <p class="info">Size: <span class="light-weight">${
+              item.size
+            }</span></p>
+            <p class="info">Qty: <span class="light-weight">${
+              item.quantity
+            }</span></p>
+            <p class="light-weight">$${item.price.toFixed(2)}</p>
+            <div class="display">
+            <button class="minus-btn">-</button>
+            <input type="number" value="${
+              item.quantity
+            }" class="qty-nr" readonly />
+            <button class="plus-btn">+</button>
+            </div>
         </div>
       </div>
-      <hr />
     `;
 
     // Append productHTML to order container

@@ -40,8 +40,13 @@
 
 .order-container {
   display: flex;
+  gap: 2rem;
+  flex-direction: column;
+}
+
+.item-container {
+  display: flex;
   gap: 1rem;
-  margin-bottom: 2rem;
 }
 
 .order-img {
