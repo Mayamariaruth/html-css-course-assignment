@@ -10,10 +10,13 @@ function displayOrderSummary() {
   const orderHeadingCount = document.querySelector(
     ".order-heading .light-weight"
   );
-  const subtotalElement = document.querySelector(".totals");
+  const subtotalElement = document.querySelector(".subtotal");
+  const grandTotalElement = document.querySelector(".grandtotal");
+  const shippingAmountElement = document.querySelector(".shipping");
 
   let subtotal = 0;
   let totalItemCount = 0;
+  let shippingCost = 0;
 
   orderContainer.innerHTML = "";
   bagItems.forEach((item) => {
@@ -64,9 +67,23 @@ function displayOrderSummary() {
     orderContainer.innerHTML += productHTML;
   });
 
+  // Determine shipping cost
+  if (subtotal >= 100) {
+    shippingCost = 0;
+  } else {
+    shippingCost = 10;
+  }
+
+  const grandTotal = subtotal + shippingCost;
+
   // Update item count and subtotal
   orderHeadingCount.textContent = `(${totalItemCount})`;
   subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
+  orderHeadingCount.textContent = `(${totalItemCount})`;
+  subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
+  shippingAmountElement.textContent =
+    shippingCost === 0 ? "FREE" : `$${shippingCost.toFixed(2)}`;
+  grandTotalElement.textContent = `$${grandTotal.toFixed(2)}`;
 }
 
 // Update quantity for a specific item
