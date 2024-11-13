@@ -202,7 +202,7 @@ function updateProductDetails(product) {
     // Add event listener to select size
     button.addEventListener("click", () => {
       selectedSize = size;
-      // Highlight the selected button and remove selection from others
+      localStorage.setItem("selectedSize", selectedSize);
       document
         .querySelectorAll(".size-btn")
         .forEach((btn) => btn.classList.remove("selected"));
@@ -228,6 +228,7 @@ function updateProductDetails(product) {
       alert("Please select a size before adding to the bag.");
       return;
     }
+
     const productToAdd = {
       id: product.id,
       title: product.title,
@@ -236,8 +237,14 @@ function updateProductDetails(product) {
       quantity: 1,
       price: product.price,
     };
+
     addItemToBag(productToAdd);
     updateBagCount();
-    showNotification(product.title);
+    showNotification(product.title, selectedSize);
+
+    const sizeButtons = document.querySelectorAll(".size-btn");
+    sizeButtons.forEach((button) => {
+      button.classList.remove("selected");
+    });
   });
 }

@@ -58,10 +58,14 @@ document.addEventListener("DOMContentLoaded", () => {
 export function showNotification(productTitle) {
   const notificationBox = document.getElementById("notification-box");
   const productNameSpan = document.getElementById("product-name");
+  const selectedSize = localStorage.getItem("selectedSize");
 
   // Update the notification message
-  productNameSpan.textContent = productTitle;
-
+  if (selectedSize) {
+    productNameSpan.innerHTML = `${productTitle} (Size: <strong>${selectedSize}</strong>)`;
+  } else {
+    productNameSpan.textContent = `${productTitle}`;
+  }
   // Display the notification
   notificationBox.classList.remove("hidden");
   notificationBox.classList.add("visible");
@@ -70,5 +74,5 @@ export function showNotification(productTitle) {
   setTimeout(() => {
     notificationBox.classList.remove("visible");
     notificationBox.classList.add("hidden");
-  }, 4000);
+  }, 5000);
 }
