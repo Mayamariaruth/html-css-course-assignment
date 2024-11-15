@@ -2,6 +2,7 @@ import { fetchProducts } from "./api.js";
 import { showNotification } from "./script.js";
 import { addItemToBag, updateBagCount } from "./bag.js";
 
+// Display Bestseller products on home page
 async function displayBestsellers() {
   const products = await fetchProducts();
   const bestsellersContainer = document.querySelector(".bestsellers");
@@ -31,7 +32,7 @@ async function displayBestsellers() {
                 <div class="column-bestsellers">
                     <img class="product-bg" src="assets/images/products/product-bg.png" alt="Grey product background" />
                     <img class="${imageClass}" src="${product.image}" alt="${displayTitle}" />
-                    <a class="bestsellers-btns" href="html/products.html?id=${product.id}">${displayTitle}</a>
+                    <a class="bestsellers-btns" href="html/product_detail.html?id=${product.id}">${displayTitle}</a>
                 </div>
             `;
 
