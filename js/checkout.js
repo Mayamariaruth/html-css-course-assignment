@@ -3,14 +3,13 @@ function getShoppingBagItems() {
   return JSON.parse(localStorage.getItem("shoppingBag")) || [];
 }
 
+// Update card charge text
 function updateChargeAmount(amount) {
   const chargeElement = document.getElementById("charge");
   if (chargeElement) {
     chargeElement.textContent = `Your card will be charged $${amount.toFixed(
       2
     )}`;
-  } else {
-    console.warn("Charge element not found in HTML.");
   }
 }
 
@@ -139,8 +138,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const orderSummaryElement = document.querySelector(".order-summary");
   if (orderSummaryElement) {
     displayOrderSummary();
-  } else {
-    console.warn("Order summary element not found in HTML.");
   }
 });
 

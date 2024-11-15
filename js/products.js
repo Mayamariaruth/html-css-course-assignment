@@ -123,24 +123,34 @@ async function displayFilteredProducts() {
   }
 }
 
-displayFilteredProducts();
-
 document.addEventListener("DOMContentLoaded", async () => {
-  // Check if we're on the product detail page by looking for "id" in the URL
-  const productId = new URLSearchParams(window.location.search).get("id");
-  if (!productId) return;
+  // Event listener for collection buttons
+  const collectionButtons = document.querySelectorAll(".collections-btn");
+  collectionButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const gender = button.dataset.gender;
+      localStorage.setItem("selectedGender", gender);
+    });
+  });
 
-  try {
-    // Fetch and display product details
-    const product = await fetchProductById(productId);
-    if (product) {
-      updateProductDetails(product);
-    } else {
-      console.error("Product not found");
+  // Display gendered products
+  displayFilteredProducts();
+
+  // Check if on product detail page and load details
+  const productId = new URLSearchParams(window.location.search).get("id");
+  if (productId) {
+    try {
+      const product = await fetchProductById(productId);
+      if (product) {
+        updateProductDetails(product);
+      } else {
+        console.error("Product not found");
+      }
+    } catch (error) {
+      console.error("Error fetching product details:", error);
     }
-  } catch (error) {
-    console.error("Error fetching product details:", error);
   }
+
   // Update bag count on page load
   updateBagCount();
 });
