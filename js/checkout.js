@@ -3,6 +3,17 @@ function getShoppingBagItems() {
   return JSON.parse(localStorage.getItem("shoppingBag")) || [];
 }
 
+function updateChargeAmount(amount) {
+  const chargeElement = document.getElementById("charge");
+  if (chargeElement) {
+    chargeElement.textContent = `Your card will be charged $${amount.toFixed(
+      2
+    )}`;
+  } else {
+    console.warn("Charge element not found in HTML.");
+  }
+}
+
 // Display shopping bag items in the checkout
 function displayOrderSummary() {
   const bagItems = getShoppingBagItems();
@@ -125,9 +136,11 @@ function updateQuantity(productId, size, change) {
 
 // Initialize checkout
 document.addEventListener("DOMContentLoaded", () => {
-  const orderSummaryElement = document.getElementById("order-summary");
+  const orderSummaryElement = document.querySelector(".order-summary");
   if (orderSummaryElement) {
     displayOrderSummary();
+  } else {
+    console.warn("Order summary element not found in HTML.");
   }
 });
 
@@ -275,8 +288,3 @@ function validatePaymentForm() {
 
   return isValid;
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-  validateForm();
-  validatePaymentForm();
-});
