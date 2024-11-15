@@ -200,6 +200,10 @@ function updateProductDetails(product) {
   // Initialize selectedSize variable
   let selectedSize = null;
 
+  // Disable the Add to Bag button
+  const addToBagButton = document.getElementById("add-to-bag");
+  addToBagButton.disabled = true;
+
   // Update available sizes and create buttons for each size
   const sizeContainer = document.getElementById("size-container");
   sizeContainer.innerHTML = `<p id="size">SIZE:</p>`;
@@ -214,6 +218,10 @@ function updateProductDetails(product) {
     button.addEventListener("click", () => {
       selectedSize = size;
       localStorage.setItem("selectedSize", selectedSize);
+
+      // Enable the Add to Bag button when a size is selected
+      addToBagButton.disabled = false;
+
       document
         .querySelectorAll(".size-btn")
         .forEach((btn) => btn.classList.remove("selected"));
@@ -237,6 +245,7 @@ function updateProductDetails(product) {
   document.getElementById("add-to-bag").addEventListener("click", () => {
     if (!selectedSize) {
       alert("Please select a size before adding to the bag.");
+      console.log("No size selected, cannot add to bag.");
       return;
     }
 
@@ -249,12 +258,30 @@ function updateProductDetails(product) {
       price: product.price,
     };
 
-    addItemToBag(productToAdd);
+    // Check if the item with the selected size is already in the bag
+    const bagItems = JSON.parse(localStorage.getItem("shoppingBag")) || [];
+    const existingItemIndex = bagItems.findIndex(
+      (item) => item.id === productToAdd.id && item.size === selectedSize
+    );
+
+    if (existingItemIndex !== -1) {
+      // If the item already exists, update the quantity
+      bagItems[existingItemIndex].quantity += 1;
+    } else {
+      // Otherwise, add the item to the bag
+      bagItems.push(productToAdd);
+    }
+
+    // Save the updated bag to localstorage
+    localStorage.setItem("shoppingBag", JSON.stringify(bagItems));
+
     updateBagCount();
     showNotification(product.title, selectedSize);
 
-    const sizeButtons = document.querySelectorAll(".size-btn");
-    sizeButtons.forEach((button) => {
+    // Reset size selection and button state
+    selectedSize = null;
+    addToBagButton.disabled = true;
+    document.querySelectorAll(".size-btn").forEach((button) => {
       button.classList.remove("selected");
     });
   });

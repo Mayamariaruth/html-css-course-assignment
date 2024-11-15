@@ -29,7 +29,7 @@ function displayOrderSummary() {
 
   let subtotal = 0;
   let totalItemCount = 0;
-  let shippingCost = 10;
+  let shippingCost = 0;
 
   orderContainer.innerHTML = "";
   bagItems.forEach((item) => {
@@ -141,6 +141,22 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+// Show loading spinner
+function showLoadingSpinner() {
+  const spinner = document.getElementById("loading-spinner");
+  if (spinner) {
+    spinner.style.display = "flex";
+  }
+}
+
+// Hide loading spinner
+function hideLoadingSpinner() {
+  const spinner = document.getElementById("loading-spinner");
+  if (spinner) {
+    spinner.style.display = "none";
+  }
+}
+
 // Array to collect all error messages
 let errors = [];
 
@@ -150,19 +166,26 @@ if (checkoutBtn) {
   document.querySelector(".checkout-btn").addEventListener("click", (event) => {
     event.preventDefault();
 
-    errors = [];
+    // Show the loading spinner when checkout starts
+    showLoadingSpinner();
 
-    const formIsValid = validateForm();
-    const paymentIsValid = validatePaymentForm();
+    setTimeout(() => {
+      errors = [];
 
-    const formValid = formIsValid && paymentIsValid;
+      const formIsValid = validateForm();
+      const paymentIsValid = validatePaymentForm();
 
-    if (!formValid) {
-      alert("Please fill out all required fields. \n" + errors.join("\n"));
-    } else {
-      localStorage.removeItem("shoppingBag");
-      window.location.href = "checkout-success.html";
-    }
+      const formValid = formIsValid && paymentIsValid;
+
+      if (!formValid) {
+        hideLoadingSpinner();
+        alert("Please fill out all required fields. \n" + errors.join("\n"));
+      } else {
+        localStorage.removeItem("shoppingBag");
+        window.location.href = "checkout-success.html";
+        hideLoadingSpinner();
+      }
+    }, 3000);
   });
 }
 
