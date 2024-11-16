@@ -89,3 +89,17 @@ document.addEventListener("DOMContentLoaded", () => {
     orderNumberElement.textContent = orderNumber;
   }
 });
+
+// Display thank you message after newsletter submission
+document
+  .querySelector(".newsletter form")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    document.getElementById("email").value = "";
+
+    const thankYouMessage = document.createElement("p");
+    thankYouMessage.textContent = `Thank you for subscribing!`;
+    thankYouMessage.classList.add("thank-you-message");
+    document.querySelector(".newsletter").appendChild(thankYouMessage);
+  });
