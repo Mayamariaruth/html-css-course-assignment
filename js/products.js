@@ -155,7 +155,7 @@ async function fetchProductById(id) {
   return await response.json();
 }
 
-// Function to update the page with product details
+// Function to update page with product details
 function updateProductDetails(product) {
   // Update breadcrumb and heading
   document.getElementById(
