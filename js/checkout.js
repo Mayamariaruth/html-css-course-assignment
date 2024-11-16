@@ -29,7 +29,7 @@ function displayOrderSummary() {
 
   let subtotal = 0;
   let totalItemCount = 0;
-  let shippingCost = 0;
+  let shippingCost = 10;
 
   orderContainer.innerHTML = "";
   bagItems.forEach((item) => {
@@ -185,7 +185,7 @@ if (checkoutBtn) {
         window.location.href = "checkout-success.html";
         hideLoadingSpinner();
       }
-    }, 3000);
+    }, 2000);
   });
 }
 

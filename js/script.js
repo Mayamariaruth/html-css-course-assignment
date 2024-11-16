@@ -4,102 +4,137 @@ import "./checkout.js";
 import "./contact.js";
 import "./products.js";
 
+document.addEventListener("DOMContentLoaded", () => {
+  toggleNavBarColor();
+  setupGenderSelection();
+  highlightActivePage();
+  setupGenderNavigation();
+  displayOrderNumber();
+  setupNewsletterSubmission();
+});
+
 // Toggle nav bar color for mobile screens
-document.addEventListener("DOMContentLoaded", function () {
+function toggleNavBarColor() {
   const navBox = document.getElementById("nav-box");
   const header = document.querySelector("header");
 
-  navBox.addEventListener("click", function () {
-    header.classList.toggle("active");
-  });
-});
+  if (navBox && header) {
+    navBox.addEventListener("click", () => {
+      header.classList.toggle("active");
+    });
+  }
+}
 
-// Store gender selection (nav bar links/footer links) in localStorage
-document.querySelectorAll('a[href="products.html"]').forEach((link) => {
-  link.addEventListener("click", (event) => {
-    const selectedGender = event.target.textContent.trim();
-    localStorage.setItem("selectedGender", selectedGender);
-  });
-});
+// Store gender selection in localStorage from links or buttons
+function setupGenderSelection() {
+  const navbarLinks = document.querySelectorAll('a[href="products.html"]');
+  const genderLinks = document.querySelectorAll("a[data-gender]");
 
-// Update .on-page class based on user gender choice in navbar
-document.addEventListener("DOMContentLoaded", () => {
+  navbarLinks.forEach((link) => {
+    link.addEventListener("click", (event) => {
+      const selectedGender = event.target.textContent.trim();
+      localStorage.setItem("selectedGender", selectedGender);
+    });
+  });
+
+  genderLinks.forEach((link) => {
+    link.addEventListener("click", (event) => {
+      const gender = event.target.closest("a").getAttribute("data-gender");
+      localStorage.setItem("selectedGender", gender);
+    });
+  });
+}
+
+// Highlight the active gender page in the navbar
+function highlightActivePage() {
   const selectedGender = localStorage.getItem("selectedGender") || "Men";
-
-  // Select all navbar links to `products.html`
   const links = document.querySelectorAll('a[href="products.html"]');
+  const currentPath = window.location.pathname;
 
-  // Remove the .on-page class from both links initially
   links.forEach((link) => {
     const span = link.querySelector("span");
     if (span) {
-      // Check if span exists
       span.classList.remove("on-page");
     }
   });
 
-  // Apply the .on-page class only if on the products.html page
-  if (window.location.pathname.endsWith("products.html")) {
+  if (currentPath.endsWith("products.html")) {
     links.forEach((link) => {
       const span = link.querySelector("span");
-      if (span) {
-        if (
-          (selectedGender === "Men" && span.textContent.trim() === "Men") ||
-          (selectedGender === "Women" && span.textContent.trim() === "Women")
-        ) {
-          span.classList.add("on-page");
-        }
+      if (span && link.textContent.trim() === selectedGender) {
+        span.classList.add("on-page");
       }
     });
   }
-});
+}
 
-// Function to show the notification
+// Handle gender navigation on the products.html page
+function setupGenderNavigation() {
+  if (window.location.pathname.endsWith("products.html")) {
+    const genderButtons = document.querySelectorAll(".gender-buttons a");
+
+    genderButtons.forEach((button) => {
+      button.addEventListener("click", (event) => {
+        const gender = event.target.closest("a").textContent.trim();
+        localStorage.setItem("selectedGender", gender);
+      });
+    });
+  }
+}
+
+// Generate and display a random order number on the checkout-success page
+function displayOrderNumber() {
+  const orderNumberElement = document.getElementById("order-number");
+  if (orderNumberElement) {
+    orderNumberElement.textContent = generateOrderNumber();
+  }
+}
+
+function generateOrderNumber() {
+  return Math.floor(1000000 + Math.random() * 9000000);
+}
+
+// Show notification for added product
 export function showNotification(productTitle) {
   const notificationBox = document.getElementById("notification-box");
   const productNameSpan = document.getElementById("product-name");
   const selectedSize = localStorage.getItem("selectedSize");
 
-  // Update the notification message
-  if (selectedSize) {
-    productNameSpan.innerHTML = `${productTitle} (Size: <strong>${selectedSize}</strong>)`;
-  } else {
-    productNameSpan.textContent = `${productTitle}`;
+  if (productNameSpan) {
+    productNameSpan.innerHTML = selectedSize
+      ? `${productTitle} (Size: <strong>${selectedSize}</strong>)`
+      : productTitle;
   }
-  // Display the notification
-  notificationBox.classList.remove("hidden");
-  notificationBox.classList.add("visible");
 
-  // Hide notification after 4 seconds
-  setTimeout(() => {
-    notificationBox.classList.remove("visible");
-    notificationBox.classList.add("hidden");
-  }, 5000);
+  if (notificationBox) {
+    notificationBox.classList.remove("hidden");
+    notificationBox.classList.add("visible");
+
+    setTimeout(() => {
+      notificationBox.classList.remove("visible");
+      notificationBox.classList.add("hidden");
+    }, 5000);
+  }
 }
 
-// Generate a random 7-digit order number
-function generateOrderNumber() {
-  return Math.floor(1000000 + Math.random() * 9000000);
-}
+// Handle newsletter form submission
+function setupNewsletterSubmission() {
+  const newsletterForm = document.querySelector(".newsletter form");
 
-document.addEventListener("DOMContentLoaded", () => {
-  const orderNumber = generateOrderNumber();
-  const orderNumberElement = document.getElementById("order-number");
-  if (orderNumberElement) {
-    orderNumberElement.textContent = orderNumber;
+  if (newsletterForm) {
+    newsletterForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const emailInput = document.getElementById("email");
+      if (emailInput) emailInput.value = "";
+
+      const thankYouMessage = document.createElement("p");
+      thankYouMessage.textContent = `Thank you for subscribing!`;
+      thankYouMessage.classList.add("thank-you-message");
+
+      const newsletterSection = document.querySelector(".newsletter");
+      if (newsletterSection) {
+        newsletterSection.appendChild(thankYouMessage);
+      }
+    });
   }
-});
-
-// Display thank you message after newsletter submission
-document
-  .querySelector(".newsletter form")
-  .addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    document.getElementById("email").value = "";
-
-    const thankYouMessage = document.createElement("p");
-    thankYouMessage.textContent = `Thank you for subscribing!`;
-    thankYouMessage.classList.add("thank-you-message");
-    document.querySelector(".newsletter").appendChild(thankYouMessage);
-  });
+}
