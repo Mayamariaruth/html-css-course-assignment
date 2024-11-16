@@ -134,6 +134,22 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   });
 
+  // Event listener for footer links
+  const footerLinks = document.querySelectorAll(".footer-links a");
+  footerLinks.forEach((link) => {
+    const gender = link.textContent;
+    if (gender === "Men" || gender === "Women") {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        localStorage.setItem("selectedGender", gender);
+        const basePath = window.location.pathname.includes("index.html")
+          ? "html/"
+          : "";
+        window.location.href = `${basePath}products.html`;
+      });
+    }
+  });
+
   // Display gendered products
   displayFilteredProducts();
 
