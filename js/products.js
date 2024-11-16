@@ -125,15 +125,6 @@ async function displayFilteredProducts() {
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
-  // Event listener for collection buttons
-  const collectionButtons = document.querySelectorAll(".collections-btn");
-  collectionButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const gender = button.dataset.gender;
-      localStorage.setItem("selectedGender", gender);
-    });
-  });
-
   // Display gendered products
   displayFilteredProducts();
 
@@ -245,7 +236,6 @@ function updateProductDetails(product) {
   document.getElementById("add-to-bag").addEventListener("click", () => {
     if (!selectedSize) {
       alert("Please select a size before adding to the bag.");
-      console.log("No size selected, cannot add to bag.");
       return;
     }
 
@@ -258,23 +248,7 @@ function updateProductDetails(product) {
       price: product.price,
     };
 
-    // Check if the item with the selected size is already in the bag
-    const bagItems = JSON.parse(localStorage.getItem("shoppingBag")) || [];
-    const existingItemIndex = bagItems.findIndex(
-      (item) => item.id === productToAdd.id && item.size === selectedSize
-    );
-
-    if (existingItemIndex !== -1) {
-      // If the item already exists, update the quantity
-      bagItems[existingItemIndex].quantity += 1;
-    } else {
-      // Otherwise, add the item to the bag
-      bagItems.push(productToAdd);
-    }
-
-    // Save the updated bag to localstorage
-    localStorage.setItem("shoppingBag", JSON.stringify(bagItems));
-
+    addItemToBag(productToAdd);
     updateBagCount();
     showNotification(product.title, selectedSize);
 
