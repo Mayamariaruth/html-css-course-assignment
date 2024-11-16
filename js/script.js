@@ -76,3 +76,16 @@ export function showNotification(productTitle) {
     notificationBox.classList.add("hidden");
   }, 5000);
 }
+
+// Generate a random 7-digit order number
+function generateOrderNumber() {
+  return Math.floor(1000000 + Math.random() * 9000000);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const orderNumber = generateOrderNumber();
+  const orderNumberElement = document.getElementById("order-number");
+  if (orderNumberElement) {
+    orderNumberElement.textContent = orderNumber;
+  }
+});

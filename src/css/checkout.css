@@ -42,6 +42,17 @@
   display: flex;
   gap: 2rem;
   flex-direction: column;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.order-container::-webkit-scrollbar {
+  width: 7px;
+}
+
+.order-container::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 10px;
 }
 
 .item-container {
@@ -367,7 +378,7 @@ input[type="radio"] {
   .checkout-container {
     display: flex;
     flex-direction: row-reverse;
-    gap: 150px;
+    gap: 60px;
     justify-content: flex-end;
   }
 
