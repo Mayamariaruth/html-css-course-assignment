@@ -113,76 +113,86 @@
           <hr />
           <form class="delivery-form" id="delivery-form">
             <input
-              class="name-details"
+              class="form-details"
               type="text"
               name="fname"
               placeholder="First name*"
               required
             />
+            <span class="error-msg" id="fname-error"></span>
             <input
-              class="name-details"
+              class="form-details"
               type="text"
               name="lname"
               placeholder="Last name*"
               required
             />
+            <span class="error-msg" id="lname-error"></span>
             <input
-              class="address-details"
+              class="form-details"
               type="text"
               name="address"
               placeholder="Address* (Apt, Number, Street)"
               required
             />
+            <span class="error-msg" id="address-error"></span>
             <input
-              class="address-details"
+              class="form-details"
               type="text"
               name="city"
               placeholder="City*"
               required
             />
+            <span class="error-msg" id="city-error"></span>
             <input
-              class="address-details"
+              class="form-details"
               type="text"
               name="postcode"
               placeholder="Postcode* (e.g. 12345 or AB1 2CD)"
               required
             />
+            <span class="error-msg" id="postcode-error"></span>
             <input
-              class="address-details"
+              class="form-details"
               type="text"
               name="country"
               placeholder="Country*"
               required
             />
+            <span class="error-msg" id="country-error"></span>
           </form>
           <!-- Contact details -->
           <h2 class="headings">Contact Details</h2>
           <hr />
           <form class="contact-form" id="contact-form">
             <input
-              class="contact-details"
+              class="form-details"
               type="email"
               name="email"
               placeholder="Email* (e.g. example@domain.com)"
               required
             />
+            <span class="error-msg" id="email-error"></span>
             <input
-              class="contact-details"
+              class="form-details"
               type="tel"
               name="phone"
               placeholder="Phone* (e.g. +1 123-456-7890)"
               required
             />
-            <input type="checkbox" name="contactdetails" id="checkbox" />
-            <label for="checkbox">
-              Keep me posted on exclusive offers, product drops and Rainy Days
-              updates.<br />
-              <span id="consent"
-                >I consent to the processing of my personal data for
-                profile-based marketing purposes, as described in our
-                <span>Privacy Policy</span>.</span
-              >
-            </label>
+            <span class="error-msg" id="phone-error"></span>
+            <div>
+              <input type="checkbox" name="contactdetails" id="checkbox" />
+              <label for="checkbox">
+                Keep me posted on exclusive offers, product drops and Rainy Days
+                updates.<br />
+                <span id="consent"
+                  >I consent to the processing of my personal data for
+                  profile-based marketing purposes, as described in our
+                  <span>Privacy Policy</span>.</span
+                >
+              </label>
+            </div>
           </form>
         </section>
       </div>
@@ -223,6 +233,7 @@
                 id="cardnumber"
                 required
               />
+              <span class="error-msg" id="cardnumber-error"></span>
               <i class="fa-solid fa-lock"></i>
             </div>
             <input
@@ -232,6 +243,7 @@
               id="nameoncard"
               required
             />
+            <span class="error-msg" id="nameoncard-error"></span>
             <div class="exp-security">
               <input
                 type="text"
@@ -240,6 +252,7 @@
                 id="expirydate"
                 required
               />
+              <span class="error-msg" id="expirydate-error"></span>
               <input
                 type="number"
                 name="securitycode"
@@ -248,6 +261,7 @@
                 id="securitycode"
                 required
               />
+              <span class="error-msg" id="securitycode-error"></span>
             </div>
           </form>
         </div>

@@ -139,19 +139,7 @@
   margin-top: 1.5rem;
 }
 
-.name-details {
-  flex: 1 1 calc(50% - 13px);
-  min-width: 163px;
-  padding: 8px;
-  box-sizing: border-box;
-  font-size: 1rem;
-  font-weight: 300;
-  border: solid 1.5px;
-  border-radius: 2px;
-}
-
-.address-details,
-.contact-details {
+.form-details {
   width: 100%;
   padding: 8px;
   font-size: 1rem;
@@ -312,12 +300,26 @@ input[type="radio"] {
 }
 
 .input-error {
-  border: 2px solid red;
   background-color: #f8d7da;
 }
 
 .input-error:focus {
   outline-color: red;
+}
+
+.error-msg {
+  display: none;
+}
+
+input.input-error + .error-msg {
+  display: block;
+  color: red;
+  font-size: 1em;
+  display: block;
+}
+
+#cardnumber-error {
+  margin-top: 6px;
 }
 
 .free-shipping-message {

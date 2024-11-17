@@ -157,9 +157,6 @@ function hideLoadingSpinner() {
   }
 }
 
-// Array to collect all error messages
-let errors = [];
-
 // Validate checkout forms
 const checkoutBtn = document.querySelector(".checkout-btn");
 if (checkoutBtn) {
@@ -170,16 +167,12 @@ if (checkoutBtn) {
     showLoadingSpinner();
 
     setTimeout(() => {
-      errors = [];
-
       const formIsValid = validateForm();
       const paymentIsValid = validatePaymentForm();
-
       const formValid = formIsValid && paymentIsValid;
 
       if (!formValid) {
         hideLoadingSpinner();
-        alert("Please fill out all required fields. \n" + errors.join("\n"));
       } else {
         localStorage.removeItem("shoppingBag");
         window.location.href = "checkout-success.html";
@@ -197,32 +190,43 @@ function validateForm() {
   let isValid = true;
 
   checkoutForms.forEach((field) => {
+    const errorContainer = document.getElementById(`${field.name}-error`);
+
     // Remove error CSS class when the user starts typing
     field.addEventListener("input", () => {
       field.classList.remove("input-error");
+      if (errorContainer) errorContainer.textContent = "";
     });
 
     // Check if the field is empty
     if (!field.value.trim()) {
       field.classList.add("input-error");
       isValid = false;
-      errors.push(`Please fill out the ${field.name} field.`);
+      if (errorContainer)
+        errorContainer.textContent = `Please fill out the ${
+          field.name === "fname"
+            ? "first name"
+            : field.name === "lname"
+            ? "last name"
+            : field.name
+        } field.`;
     } else {
-      // Validate specific fields
+      // Email, phone and postcode field validations
       if (field.name === "email" && !validateEmail(field.value)) {
         field.classList.add("input-error");
         isValid = false;
-        errors.push("Please enter a valid email address.");
+        if (errorContainer)
+          errorContainer.textContent = "Please enter a valid email address.";
       } else if (field.name === "phone" && !validatePhoneNumber(field.value)) {
         field.classList.add("input-error");
         isValid = false;
-        errors.push("Please enter a valid phone number.");
+        if (errorContainer)
+          errorContainer.textContent = "Please enter a valid phone number.";
       } else if (field.name === "postcode" && !validatePostcode(field.value)) {
         field.classList.add("input-error");
         isValid = false;
-        errors.push("Please enter a valid postcode.");
-      } else {
-        field.classList.remove("input-error");
+        if (errorContainer)
+          errorContainer.textContent = "Please enter a valid postcode.";
       }
     }
   });
@@ -267,7 +271,10 @@ function validatePaymentForm() {
   if (!/^\d{13,19}$/.test(cardNumber.value.trim())) {
     isValid = false;
     cardNumber.classList.add("input-error");
-    errors.push("Please enter a valid card number (13-19 digits).");
+    const errorContainer = document.getElementById("cardnumber-error");
+    if (errorContainer)
+      errorContainer.textContent =
+        "Please enter a valid card number (13-19 digits).";
   } else {
     cardNumber.classList.remove("input-error");
   }
@@ -276,7 +283,9 @@ function validatePaymentForm() {
   if (!/^[A-Za-z\s]+$/.test(nameOnCard.value.trim())) {
     isValid = false;
     nameOnCard.classList.add("input-error");
-    errors.push("Please enter a valid name on the card.");
+    const errorContainer = document.getElementById("nameoncard-error");
+    if (errorContainer)
+      errorContainer.textContent = "Please enter a valid name on the card.";
   } else {
     nameOnCard.classList.remove("input-error");
   }
@@ -285,7 +294,9 @@ function validatePaymentForm() {
   if (!/^(0[1-9]|1[0-2])\/\d{2}$/.test(expiryDate.value.trim())) {
     isValid = false;
     expiryDate.classList.add("input-error");
-    errors.push("Please enter a valid expiration date in MM/YY format.");
+    const errorContainer = document.getElementById("expirydate-error");
+    if (errorContainer)
+      errorContainer.textContent = "Please enter a valid expiration date.";
   } else {
     expiryDate.classList.remove("input-error");
   }
@@ -294,7 +305,10 @@ function validatePaymentForm() {
   if (!/^\d{3}$/.test(securityCode.value.trim())) {
     isValid = false;
     securityCode.classList.add("input-error");
-    errors.push("Please enter a valid 3-digit security code.");
+    const errorContainer = document.getElementById("securitycode-error");
+    if (errorContainer)
+      errorContainer.textContent =
+        "Please enter a valid 3-digit security code.";
   } else {
     securityCode.classList.remove("input-error");
   }
