@@ -51,7 +51,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // If all fields are valid, display success message
       if (isValid) {
-        alert("Thank you for your message!");
+        const contactSuccess = document.getElementById("contactSuccess");
+        contactSuccess.textContent = "Thank you! Your message has been sent.";
+        contactSuccess.className = "contact-success";
         contactForm.reset();
       }
     });

@@ -110,6 +110,20 @@ textarea {
   display: block;
 }
 
+.hidden {
+  display: none;
+}
+
+.contact-success {
+  margin-top: 10px;
+  color: #0f5132;
+  background-color: #d1e7dd;
+  padding: 10px;
+  border: 1px solid #badbcc;
+  border-radius: 5px;
+  text-align: center;
+}
+
 /* Media queries */
 @media (min-width: 768px) {
   .contact-container {
