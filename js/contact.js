@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
       element.classList.remove("visible");
     });
 
-    document.querySelectorAll("input").forEach((input) => {
+    document.querySelectorAll("input, textarea").forEach((input) => {
       input.classList.remove("input-error");
     });
   }
