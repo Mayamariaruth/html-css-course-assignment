@@ -19,24 +19,29 @@ document.addEventListener("DOMContentLoaded", () => {
       let isValid = true;
 
       if (name.length < 3) {
-        showError("nameError", "Please enter at least 3 characters.");
+        showError("nameError", "Please enter at least 3 characters.", "name");
         isValid = false;
       }
 
       if (!validateEmail(email)) {
-        showError("emailError", "Please enter a valid email address.");
+        showError(
+          "emailError",
+          "Please enter a valid email address.",
+          "emailaddress"
+        );
         isValid = false;
       }
 
       if (order && order.length !== 7) {
-        showError("orderError", "Order number must be 7 digits.");
+        showError("orderError", "Order number must be 7 digits.", "order");
         isValid = false;
       }
 
       if (subject.length < 3) {
         showError(
           "subjectError",
-          "Please enter a subject (at least 3 characters)."
+          "Please enter a subject (at least 3 characters).",
+          "subject"
         );
         isValid = false;
       }
@@ -44,7 +49,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (message.length < 10) {
         showError(
           "messageError",
-          "Your message must be at least 10 characters."
+          "Your message must be at least 10 characters.",
+          "message"
         );
         isValid = false;
       }
@@ -60,13 +66,17 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Helper function to display error messages
-  function showError(elementId, message) {
+  function showError(elementId, message, inputId) {
     const errorElement = document.getElementById(elementId);
-    if (errorElement) {
+    const inputElement = document.getElementById(inputId);
+    if (errorElement && inputElement) {
       errorElement.textContent = message;
       errorElement.classList.add("visible");
+      inputElement.classList.add("input-error");
     } else {
-      console.error(`Error element with ID ${elementId} not found`);
+      console.error(
+        `Error element or input field with ID ${inputId} not found`
+      );
     }
   }
 
@@ -75,6 +85,10 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".error-message").forEach((element) => {
       element.textContent = "";
       element.classList.remove("visible");
+    });
+
+    document.querySelectorAll("input").forEach((input) => {
+      input.classList.remove("input-error");
     });
   }
 
