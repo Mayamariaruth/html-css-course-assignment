@@ -774,3 +774,19 @@ footer {
     width: 80%;
   }
 }
+
+@media (min-width: 1200px) {
+  .hero-text h1 {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .hero-text h1 {
+    font-size: 3.5rem;
+  }
+
+  .hero-text p {
+    font-size: 1.8rem;
+  }
+}
